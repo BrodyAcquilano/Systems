@@ -1,0 +1,131 @@
+/* Ensure full height */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  width: 100%;
+}
+
+/* Fix Header at top */
+.header-container {
+  display: flex;
+  position: relative;
+  width:100%;
+}
+
+/* Layout for body */
+.body-container {
+  overflow: hidden;
+  display:flex;
+  flex:1;
+  position: relative;
+  flex-direction: column;
+  overflow: hidden; 
+  width:100%      
+}
+
+/* Side toggle button (☰) */
+.left-side-toggle {
+  position: absolute;
+  top: 30px;
+  left: 350px;
+  font-size: 1.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  z-index: 1002;
+  transition: left 0.4s ease, right 0.4s ease;
+}
+
+/* Position when panel is collapsed */
+.left-toggle.left-collapsed-toggle {
+  left: 15px;
+}
+
+/* Panel layout wrapper */
+.left-overlay-panel {
+  position: absolute;
+  top:  0;
+  bottom:  env(safe-area-inset-bottom, 0px);
+  width: 350px;
+  max-width: 350px;
+  background-color: rgba(255, 255, 255, 0);
+  padding: 20px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  z-index: 1001;
+  transition: transform 0.3s ease;
+  direction: rtl;
+}
+
+.left-overlay-panel * {
+  direction: ltr;
+}
+
+/* Position of filter panel */
+.left-panel-wrapper {
+  left: 0;
+  border-radius: 20px;
+}
+
+/* Collapsed state */
+.left-collapsed {
+  transform: translateX(-100%);
+}
+
+/*--------------------------*/
+
+/* Side toggle button (☰) */
+.right-side-toggle {
+  position: absolute;
+  bottom: 30px;
+  right: 350px;
+  font-size: 1.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  z-index: 1004;
+  transition: left 0.4s ease, right 0.4s ease;
+}
+
+/* Position when panel is collapsed */
+.right-toggle.right-collapsed-toggle {
+  right: 25px;
+}
+
+/* Panel layout wrapper */
+.right-overlay-panel {
+  position: absolute;
+  top:  0;
+  bottom:  env(safe-area-inset-bottom, 0px);
+  width: 350px;
+  max-width: 350px;
+  background-color: rgba(255, 255, 255, 0);
+  padding: 20px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  z-index: 1003;
+  transition: transform 0.3s ease;
+}
+
+
+/* Position of filter panel */
+.right-panel-wrapper {
+  right: 0;
+  border-radius: 20px;
+}
+
+/* Collapsed state */
+.right-collapsed {
+  transform: translateX(100%);
+}
+
+

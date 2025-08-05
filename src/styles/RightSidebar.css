@@ -1,0 +1,63 @@
+.right-sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  min-width: 300px;
+  padding: 1.5rem 1.5rem 1.5rem 2rem;
+  background-color: #73567e;
+  height: 100%;
+  font-family: "Alegreya SC", serif;
+  font-size: 1rem;
+  overflow-y: hidden;
+  position: relative;
+  z-index: 5;
+  min-height: 100%;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 1);
+  border: 8px solid #474646;
+  box-sizing: border-box;
+}
+
+.right-sidebar h2 {
+  font-size: 1.25rem; 
+  margin-bottom: 1.25rem; 
+  color: #a5a54e; 
+  font-weight: 700;
+}
+
+.right-sidebar-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #a5a54e;
+  margin-bottom: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.dropdown-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.right-sidebar label {
+  color: #a5a54e;
+  font-weight: 600;
+}
+
+.right-sidebar select {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.5rem;
+  background-color: #4e3c59;
+  color: #a5a54e;
+  border: 2px solid #2f2f2f;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.right-sidebar select:focus {
+  border-color: #83833c;
+}

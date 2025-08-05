@@ -1,0 +1,44 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #73567e;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 1);
+  position: relative;
+  font-family: "Alegreya SC", serif;
+  z-index: 1005;
+  height: 70px;
+  width: 100%;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 1);  
+    border-bottom: 3px solid #474646;
+  box-sizing: border-box; 
+}
+
+/* Shared logo styles */
+.logo {
+  font-size: 1.8rem;
+  position: absolute;
+  user-select: none;
+}
+
+/* Left logo positioned left */
+.left-logo {
+  left: 2rem;
+}
+
+/* Right logo positioned right */
+.right-logo {
+  right: 2rem;
+}
+
+/* Title is centered absolutely */
+.title {
+  font-weight: 700;
+  font-size: 2rem;
+  color: #a5a54e;
+  text-align: center;
+  width: 100%;
+  pointer-events: none;
+  user-select: text;
+}

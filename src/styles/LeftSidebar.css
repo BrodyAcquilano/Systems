@@ -1,0 +1,69 @@
+.left-sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  min-width: 300px;
+  padding: 1.5rem 1.5rem 1.5rem 2rem;
+  background-color: #73567e;
+  font-family: "Alegreya SC", serif;
+  font-size: 1rem;
+  overflow-y: hidden;
+  position: relative;
+  z-index: 5;
+  min-height: 100%;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 1);
+  border: 8px solid #474646;
+  box-sizing: border-box;
+}
+
+.left-sidebar h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1.25rem;
+  color: #a5a54e;
+  font-weight: 700;
+}
+
+.left-sidebar-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #a5a54e;
+  margin-bottom: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.left-sidebar-title:hover {
+  color: #83833c;
+  text-decoration: underline;
+}
+
+.left-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.left-sidebar li {
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  color: #a5a54e;
+  transition: color 0.2s ease;
+}
+
+.left-sidebar li:hover {
+  color: #83833c;
+  text-decoration: underline;
+}
+
+/* Style for Part Titles in Sidebar */
+.left-sidebar .part-title {
+  color: #a5a54e;
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  cursor: default;
+  text-decoration: none;
+  pointer-events: none;
+}

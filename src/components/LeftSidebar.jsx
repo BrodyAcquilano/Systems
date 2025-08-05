@@ -8,7 +8,7 @@ const tocData = [
     chapters: [
       {
         title: 'Chapter 1: Why Systems Matter',
-        file: '1.Introduction.md',
+        file: '1. Why Systems Matter.md',
         sections: [
           '1.1 Introduction: A Structural Guide for Policymakers',
           '1.2 Introduction: Poverty as a Systemic Outcome',

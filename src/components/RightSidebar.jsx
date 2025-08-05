@@ -37,18 +37,12 @@ function RightSidebar({ fontStyle, setFontStyle, fontColor, setFontColor }) {
           onChange={(e) => setFontColor(e.target.value)}
         >
 <option value="#2b2b2b">Classic Ink</option>
-<option value="#3a3a3a">Charcoal</option>
 <option value="#4e4e4e">Iron Gray</option>
-<option value="#3f3f2e">Deep Olive Black</option>
-<option value="#5e4630">Sepia</option>
-<option value="#4b3b2a">Antique Brown</option>
 <option value="#4a2c2a">Dark Mahogany</option>
 <option value="#6f4f28">Chestnut</option>
 <option value="#7b5e57">Weathered Leather</option>
 <option value="#8B0000">Crimson Red</option>
 <option value="#7C0A02">Burgundy</option>
-<option value="#A52A2A">Rust Brown</option>
-<option value="#B22222">Firebrick</option>
 <option value="#9C1C1C">Scarlet Ink</option>
 <option value="#1C1CA2">Royal Blue Ink</option>
 <option value="#003366">Ink Blue</option>

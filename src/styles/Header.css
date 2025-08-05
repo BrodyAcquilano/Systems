@@ -42,3 +42,17 @@
   pointer-events: none;
   user-select: text;
 }
+@media (max-width: 600px) {
+  .header {
+    height: auto;
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 1.3rem;
+    white-space: normal;
+    word-wrap: break-word;
+    padding: 0 3rem; /* leave room for the logos */
+    text-align: center;
+  }
+}

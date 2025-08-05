@@ -101,6 +101,3 @@ Rather, I am using ecological thinking as a problem-solving framework. Ecology g
 When I reference specific human groups (such as homeless populations or workers in a toxic environment), it is not to single them out, but to demonstrate how social patterns mirror ecological structures — for example, how constraints on movement, access, or roles can produce predictable outcomes across systems.
 
 The focus of these analogies is not to label people, but to better understand the environments and systems in which people live. This approach is grounded in respect, empathy, and a drive to find sustainable, real-world solutions.
-
-
-

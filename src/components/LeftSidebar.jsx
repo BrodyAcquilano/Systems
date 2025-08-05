@@ -8,7 +8,7 @@ const tocData = [
     chapters: [
       {
         title: 'Chapter 1: Why Systems Matter',
-        file: '1. Why Systems Matter.md',
+        file: 'Chapter1.md',
         sections: [
           '1.1 Introduction: A Structural Guide for Policymakers',
           '1.2 Introduction: Poverty as a Systemic Outcome',
@@ -27,7 +27,7 @@ const tocData = [
     chapters: [
       {
         title: 'Chapter 2: Niches, Roles, and Resource Competition',
-        file: '',
+        file: 'Chapter2.md',
         sections: [
           '2.1 Definition/Introduction: Ecological niches and social roles',
           '2.2 Vocabulary: Niche, adaptation, role inflexibility, parasitism',
@@ -41,7 +41,7 @@ const tocData = [
       },
       {
         title: 'Chapter 3: Patches, Corridors, and Barriers',
-        file: '',
+        file: 'Chapter3.md',
         sections: [
           '3.1 Definition/Introduction: Spatial ecology and access',
           '3.2 Vocabulary: Habitat patch, corridor, barrier, fragmentation',
@@ -55,7 +55,7 @@ const tocData = [
       },
       {
         title: 'Chapter 4: Landscape Heterogeneity and Uneven Terrain',
-        file: '',
+        file: 'Chapter4.md',
         sections: [
           '4.1 Definition/Introduction: Uneven landscapes create fragmentation in access, opportunity, and exposure to risk.',
           '4.2 Vocabulary: Heterogeneity, fragmentation, edge effects, zoning, terrain cost',
@@ -69,7 +69,7 @@ const tocData = [
       },
       {
         title: 'Chapter 5: Resource Flows and Scarcity Cycles',
-        file: '',
+        file: 'Chapter5.md',
         sections: [
           '5.1 Definition/Introduction: Inputs, outputs, and resource flow',
           '5.2 Vocabulary: Bottleneck, leak, redundancy, buffer, debt trap',
@@ -89,7 +89,7 @@ const tocData = [
     chapters: [
       {
         title: 'Chapter 6: Feedback Loops and Instability',
-        file: '',
+        file: 'Chapter6.md',
         sections: [
           '6.1 Definition/Introduction: Feedback in systems',
           '6.2 Vocabulary: Positive feedback, negative feedback, stability',
@@ -103,7 +103,7 @@ const tocData = [
       },
       {
         title: 'Chapter 7: Load, Stress, and Failure Thresholds',
-        file: '',
+        file: 'Chapter7.md',
         sections: [
           '7.1 Definition/Introduction: Structural load and human pressure',
           '7.2 Vocabulary: Fatigue, yield point, safety factor',
@@ -117,7 +117,7 @@ const tocData = [
       },
       {
         title: 'Chapter 8: Interfaces, Coupling, and Interdependency',
-        file: '',
+        file: 'Chapter8.md',
         sections: [
           '8.1 Definition/Introduction: System boundaries and overlap',
           '8.2 Vocabulary: Interface, tight coupling, modularity',
@@ -137,7 +137,7 @@ const tocData = [
     chapters: [
       {
         title: 'Chapter 9: Economic Modeling and Opportunity Cost',
-        file: '',
+        file: 'Chapter9.md',
         sections: [
           '9.1 Principles of Scarcity and Trade-offs',
           '9.2 Modeling Resource Allocation',
@@ -149,7 +149,7 @@ const tocData = [
       },
       {
         title: 'Chapter 10: Legal Systems and Structural Barriers',
-        file: '',
+        file: 'Chapter10.md',
         sections: [
           '10.1 Rights vs. Privileges Framework',
           '10.2 Legal Gaps and Enforcement Issues',
@@ -161,7 +161,7 @@ const tocData = [
       },
       {
         title: 'Chapter 11: Policy Design and Implementation',
-        file: '',
+        file: 'Chapter11.md',
         sections: [
           '11.1 Principles of Effective Policy Making',
           '11.2 Inclusive, Ethical, and Resilient Policy Design',
@@ -178,7 +178,7 @@ const tocData = [
     chapters: [
       {
         title: 'Chapter 12: Case Study Template and Methodology',
-        file: '',
+        file: 'Chapter12.md',
         sections: [
           '12.1 How to Use This Book to Analyze Cases',
           '12.2 Stepwise Guide to Mapping Systems and Problems',
@@ -187,7 +187,7 @@ const tocData = [
       },
       {
         title: 'Chapter 13: Selected Case Studies',
-        file: '',
+       file: 'Chapter13.md',
         sections: [
           '13.1 Homelessness and Transit Isolation',
           '13.2 Landlord Abuse and Housing Insecurity',
@@ -198,7 +198,7 @@ const tocData = [
       },
       {
         title: 'Chapter 14: Future Directions and Calls to Action',
-        file: '',
+        file: 'Chapter14.md',
         sections: [
           '14.1 Scaling Solutions',
           '14.2 Building Interdisciplinary Coalitions',

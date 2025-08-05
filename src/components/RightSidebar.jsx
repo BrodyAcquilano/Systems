@@ -47,6 +47,7 @@ function RightSidebar({ fontStyle, setFontStyle, fontColor, setFontColor }) {
 <option value="#1C1CA2">Royal Blue Ink</option>
 <option value="#003366">Ink Blue</option>
 <option value="#2C3E50">Slate Blue</option>
+
         </select>
       </div>
     </aside>

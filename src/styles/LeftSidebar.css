@@ -24,12 +24,13 @@
   text-align: center;
   cursor: pointer;
   transition: color 0.2s ease;
+  user-select: none;
 }
 
 .left-sidebar-title:hover {
-  color: #83833c;
-  text-decoration: underline;
+  color: #f5f596;
 }
+
 
 .left-sidebar ul {
   list-style: none;
@@ -49,6 +50,7 @@
   cursor: pointer;
   margin-bottom: 0.25rem;
   gap: 0.5rem;
+  
 }
 
 .part-toggle-icon {
@@ -59,6 +61,12 @@
   text-align: center;
   flex-shrink: 0;
   font-size: 1.1rem;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s ease;
+}
+.part-toggle-icon:hover {
+  color: #f5f596;
 }
 
 .part-title {
@@ -67,6 +75,14 @@
   line-height: 1.3;
   word-break: break-word;
   flex: 1;
+  padding: 0.25rem 0;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s ease;
+}
+
+.part-title:hover {
+  color: #f5f596;
 }
 
 /* Chapter Header Styles */
@@ -82,11 +98,12 @@
   cursor: pointer;
   transition: color 0.2s ease;
   flex: 1;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s ease;
 }
-
 .chapter-title:hover {
-  color: #83833c;
-  text-decoration: underline;
+  color: #f5f596;
 }
 
 .chapter-toggle-icon {
@@ -95,6 +112,13 @@
   user-select: none;
   text-align: center;
   font-size: 1rem;
+   cursor: pointer;
+  user-select: none;
+  transition: color 0.2s ease;
+}
+
+.chapter-toggle-icon:hover {
+  color: #f5f596;
 }
 
 /* Section List and Items */
@@ -111,7 +135,7 @@
 .section-item {
   font-size: 0.95rem;
   line-height: 1.3;
-  color: #cfcfa5;
+  color:  #a5a54e;
   padding: 0.25rem 0;
   cursor: pointer;
   user-select: none;
@@ -122,3 +146,16 @@
   color: #f5f596;
 }
 
+@media (hover: none) and (pointer: coarse) {
+  .part-title:active,
+  .chapter-title:active,
+  .section-item:active,
+  .left-sidebar-title:active,
+  .part-toggle-icon:active,
+  .chapter-toggle-icon:active {
+    color: #f5f596;
+    background-color: rgba(255, 255, 150, 0.15); /* subtle highlight */
+    transition: none;
+    border-radius: 4px;
+  }
+}

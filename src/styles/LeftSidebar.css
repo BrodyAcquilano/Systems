@@ -16,13 +16,6 @@
   box-sizing: border-box;
 }
 
-.left-sidebar h2 {
-  font-size: 1.25rem;
-  margin-bottom: 1.25rem;
-  color: #a5a54e;
-  font-weight: 700;
-}
-
 .left-sidebar-title {
   font-size: 1.5rem;
   font-weight: 700;
@@ -46,24 +39,86 @@
 
 .left-sidebar li {
   margin-bottom: 0.75rem;
-  cursor: pointer;
   color: #a5a54e;
-  transition: color 0.2s ease;
 }
 
-.left-sidebar li:hover {
+/* Part Header Styles */
+.part-header {
+  display: flex;
+  align-items: flex-start;
+  cursor: pointer;
+  margin-bottom: 0.25rem;
+  gap: 0.5rem;
+}
+
+.part-toggle-icon {
+  width: 1.25rem;
+  font-weight: bold;
+  color: #a5a54e;
+  user-select: none;
+  text-align: center;
+  flex-shrink: 0;
+  font-size: 1.1rem;
+}
+
+.part-title {
+  font-weight: 600;
+  font-size: 1.05rem;
+  line-height: 1.3;
+  word-break: break-word;
+  flex: 1;
+}
+
+/* Chapter Header Styles */
+.chapter-header {
+  display: flex;
+  align-items: center;
+  margin-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  gap: 0.5rem;
+}
+
+.chapter-title {
+  cursor: pointer;
+  transition: color 0.2s ease;
+  flex: 1;
+}
+
+.chapter-title:hover {
   color: #83833c;
   text-decoration: underline;
 }
 
-/* Style for Part Titles in Sidebar */
-.left-sidebar .part-title {
+.chapter-toggle-icon {
+  width: 1.25rem;
   color: #a5a54e;
-  font-weight: 600;
-  font-size: 1.05rem;
-  margin-top: 1.25rem;
-  margin-bottom: 0.5rem;
-  cursor: default;
-  text-decoration: none;
-  pointer-events: none;
+  user-select: none;
+  text-align: center;
+  font-size: 1rem;
 }
+
+/* Section List and Items */
+.section-list {
+  margin-left: 3rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.75rem;
+  padding-left: 0.75rem;
+  border-left: 2px solid rgba(165, 165, 78, 0.3);
+}
+
+
+
+.section-item {
+  font-size: 0.95rem;
+  line-height: 1.3;
+  color: #cfcfa5;
+  padding: 0.25rem 0;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s ease;
+}
+
+.section-item:hover {
+  color: #f5f596;
+}
+

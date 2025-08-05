@@ -1,14 +1,18 @@
 
 .main-content {
   padding: 2rem;
-  overflow-y: auto; 
+  overflow-y: auto;
   background-color: #a1ab79;
-  background-attachment:fixed;
+  background-attachment: fixed;
   background-position: center center;
   background-size: cover;
   border: 3px solid #474646;
-  height: calc(100dvh - 70px);  
   width: 100%;
+  
+  /* Use flex-grow to fill remaining space */
+  flex-grow: 1;
+  height: auto; /* remove fixed height */
+  box-sizing: border-box;
 }
 
 

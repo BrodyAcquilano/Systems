@@ -4,15 +4,15 @@
   justify-content: center;
   background-color: #73567e;
   padding: 1rem 2rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 1);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 1);
   position: relative;
   font-family: "Alegreya SC", serif;
   z-index: 1005;
-  height: 70px;
   width: 100%;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 1);  
-    border-bottom: 3px solid #474646;
-  box-sizing: border-box; 
+  border-bottom: 3px solid #474646;
+  box-sizing: border-box;
+  /* Removed fixed height to allow dynamic height */
+  height: auto;
 }
 
 /* Shared logo styles */
@@ -42,17 +42,18 @@
   pointer-events: none;
   user-select: text;
 }
+
 @media (max-width: 600px) {
   .header {
-    height: auto;
     padding: 1rem;
+    height: auto; /* ensures flexible height on mobile */
   }
 
   .title {
     font-size: 1.3rem;
     white-space: normal;
     word-wrap: break-word;
-    padding: 0 3rem; /* leave room for the logos */
+    padding: 0 3rem; /* space for logos */
     text-align: center;
   }
 }

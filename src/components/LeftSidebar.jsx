@@ -211,19 +211,19 @@ const tocData = [
   },
 ];
 
-function LeftSidebar({ setSelectedFile, setBgId }) {
+function LeftSidebar({ selectedFile,setSelectedFile, setBgId }) {
   const [expandedParts, setExpandedParts] = useState({});
   const [expandedChapters, setExpandedChapters] = useState({});
 
-function flashElement(el) {
-  if (!el) return;
-  const originalColor = el.style.color;
-  el.style.color = "#f5f596";
+  function flashElement(el) {
+    if (!el) return;
+    const originalColor = el.style.color;
+    el.style.color = "#f5f596";
 
-  setTimeout(() => {
-    el.style.color = originalColor || "#a5a54e";
-  }, 700);
-}
+    setTimeout(() => {
+      el.style.color = originalColor || "#a5a54e";
+    }, 700);
+  }
 
   const isTouchDevice = window.matchMedia(
     "(hover: none) and (pointer: coarse)"
@@ -245,18 +245,20 @@ function flashElement(el) {
     }));
   };
 
-  const handleFileSelect = (fileName, e) => {
-    if (isTouchDevice) flashElement(e.currentTarget);
-    setSelectedFile(fileName);
-    setBgId(Math.floor(Math.random() * 7) + 1);
-  };
+  const handleFileSelect = (currentFile, fileName, e) => {
+  if (currentFile === fileName) return;
+
+  if (isTouchDevice) flashElement(e.currentTarget);
+  setSelectedFile(fileName);
+  setBgId(Math.floor(Math.random() * 7) + 1);
+};
 
   return (
     <aside className="left-sidebar">
       <div
         className="left-sidebar-title"
         onClick={(e) => {
-          handleFileSelect("0. Table of Contents.md", e);
+          handleFileSelect(selectedFile, "0. Table of Contents.md", e);
         }}
       >
         Table of Contents
@@ -292,7 +294,7 @@ function flashElement(el) {
                       <div className="chapter-header">
                         <div
                           className="chapter-toggle-icon"
-                            onClick={(e) => {
+                          onClick={(e) => {
                             toggleChapter(chapterKey, e);
                           }}
                         >
@@ -301,7 +303,7 @@ function flashElement(el) {
                         <div
                           className="chapter-title"
                           onClick={(e) => {
-                            handleFileSelect(chapter.file, e);
+                            handleFileSelect(selectedFile,chapter.file, e);
                           }}
                         >
                           {chapter.title}
@@ -316,9 +318,8 @@ function flashElement(el) {
                                 className="section-item"
                                 key={sectionIndex}
                                 onClick={(e) => {
-                                  if (isTouchDevice)
-                                    flashElement(e.currentTarget);
-                                  // In the future you can scroll to section here
+                                  handleFileSelect(selectedFile, chapter.file, e);
+                                  // In the future you can scroll to section anchor here
                                 }}
                               >
                                 {sectionTitle}

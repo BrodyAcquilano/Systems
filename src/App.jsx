@@ -53,6 +53,7 @@ function App() {
           aria-hidden={!showLeftPanel}
         >
             <LeftSidebar 
+            selectedFile={selectedFile}
             setSelectedFile={setSelectedFile} 
             setBgId={setBgId}
            />

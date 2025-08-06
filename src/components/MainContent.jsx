@@ -39,6 +39,19 @@ const fontSizeOverrides = {
   },
 };
 
+const backgroundPositionOverrides = [
+  "left top",
+  "left center",
+  "left bottom",
+  "center top",
+  "center center",
+  "center bottom",
+  "right top",
+  "right center",
+  "right bottom",
+];
+
+const backgroundSizeOverrides = ["cover", "auto 100%", "100% 100%"];
 
 function MainContent({ fileContent, bgId, fontStyle, fontColor }) {
   const fontSizes = {
@@ -46,11 +59,23 @@ function MainContent({ fileContent, bgId, fontStyle, fontColor }) {
     ...(fontSizeOverrides[fontStyle] || {}),
   };
 
+  const backgroundPosition =
+    backgroundPositionOverrides[
+      Math.floor(Math.random() * backgroundPositionOverrides.length)
+    ];
+
+  const backgroundSize =
+    backgroundSizeOverrides[
+      Math.floor(Math.random() * backgroundSizeOverrides.length)
+    ];
+
   return (
     <main
       className="main-content"
       style={{
         backgroundImage: `url('/parchment-bg${bgId}.jpg')`,
+        backgroundPosition,
+        backgroundSize,
       }}
     >
       <div
@@ -97,4 +122,3 @@ function MainContent({ fileContent, bgId, fontStyle, fontColor }) {
 }
 
 export default MainContent;
-

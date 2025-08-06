@@ -146,9 +146,3 @@
   color: #f5f596;
 }
 
-.tap-flash {
-  color: #f5f596;
-  background-color: rgba(255, 255, 150, 0.15);
-  border-radius: 4px;
-  transition: background-color 0.3s, color 0.3s;
-}

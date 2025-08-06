@@ -215,13 +215,15 @@ function LeftSidebar({ setSelectedFile, setBgId }) {
   const [expandedParts, setExpandedParts] = useState({});
   const [expandedChapters, setExpandedChapters] = useState({});
 
-  function flashElement(el) {
-    if (!el) return;
-    el.classList.add("tap-flash");
-    setTimeout(() => {
-      el.classList.remove("tap-flash");
-    }, 700);
-  }
+function flashElement(el) {
+  if (!el) return;
+  const originalColor = el.style.color;
+  el.style.color = "#f5f596";
+
+  setTimeout(() => {
+    el.style.color = originalColor || "#a5a54e";
+  }, 700);
+}
 
   const isTouchDevice = window.matchMedia(
     "(hover: none) and (pointer: coarse)"

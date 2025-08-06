@@ -15,6 +15,12 @@
 }
 
 
+@media (max-width: 768px) {
+  .main-content {
+    padding-top: 5rem; /* stops left sidebar toggle button from blocking text*/
+  }
+}
+
 
 .content-wrapper {
   max-width: 800px;

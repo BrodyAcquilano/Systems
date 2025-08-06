@@ -9,16 +9,8 @@ import "./styles/App.css";
 const markdownFiles = import.meta.glob("./markdown/*.md", { as: "raw" });
 
 function App() {
-  const [selectedFile, setSelectedFile] = useState("0. Table of Contents.md");
-  const [fileContent, setFileContent] = useState("");
-  const [bgId, setBgId] = useState(() => Math.floor(Math.random() * 7) + 1);
-  const [showLeftPanel, setShowLeftPanel] = useState(false);
-  const [showRightPanel, setShowRightPanel] = useState(false);
-  const [fontStyle, setFontStyle] = useState("'Alegreya SC', serif");
-  const [fontColor, setFontColor] = useState("#2b2b2b");
-  const [bgPosition, setBgPosition] = useState(getRandomPosition());
 
-const bgPositionOverrides = [
+  const bgPositionOverrides = [
   "left top",
   "left center",
   "left bottom",
@@ -35,6 +27,17 @@ function getRandomPosition() {
     Math.floor(Math.random() * bgPositionOverrides.length)
   ];
 }
+
+  const [selectedFile, setSelectedFile] = useState("0. Table of Contents.md");
+  const [fileContent, setFileContent] = useState("");
+  const [bgId, setBgId] = useState(() => Math.floor(Math.random() * 7) + 1);
+  const [showLeftPanel, setShowLeftPanel] = useState(false);
+  const [showRightPanel, setShowRightPanel] = useState(false);
+  const [fontStyle, setFontStyle] = useState("'Alegreya SC', serif");
+  const [fontColor, setFontColor] = useState("#2b2b2b");
+  const [bgPosition, setBgPosition] = useState(getRandomPosition());
+
+
 
   const spawnSparkle = (x, y, isClick = false) => {
     const sparkle = document.createElement("div");

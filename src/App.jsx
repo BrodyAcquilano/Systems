@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import LeftSidebar from "./components/LeftSidebar";
 import RightSidebar from "./components/RightSidebar";
 import MainContent from "./components/MainContent";
+import CustomCursor from "./components/CustomCursor";
 import "./styles/App.css";
 
 const markdownFiles = import.meta.glob("./markdown/*.md", { as: "raw" });
@@ -32,6 +33,7 @@ function App() {
 
   return (
     <div className="app-container">
+       <CustomCursor />
       <div className="header-container">
         <Header />
         </div>

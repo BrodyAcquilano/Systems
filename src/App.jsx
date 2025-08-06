@@ -36,13 +36,19 @@ function getRandomPosition() {
   const [fontStyle, setFontStyle] = useState("'Alegreya SC', serif");
   const [fontColor, setFontColor] = useState("#2b2b2b");
   const [bgPosition, setBgPosition] = useState(getRandomPosition());
+  const [cursor, setCursor]=useState("sparkle");
+  const [animationContent, setAnimationContent]=useState("sparkle");
 
 
-
-  const spawnSparkle = (x, y, isClick = false) => {
+  const spawnSparkle = (x, y, isClick = false, animationContent) => {
     const sparkle = document.createElement("div");
     sparkle.className = isClick ? "click-sparkle" : "sparkle";
-    sparkle.innerText = "✨";
+   const symbolMap = {
+    sparkle: "✨",
+    lightning: "⚡",
+  };
+
+  sparkle.innerText = symbolMap[animationContent] || "✨";
 
     sparkle.style.left = `${x}px`;
     sparkle.style.top = `${y}px`;
@@ -97,7 +103,7 @@ function getRandomPosition() {
 
   useEffect(() => {
     const handleMove = (e) => {
-      spawnSparkle(e.clientX, e.clientY, false);
+      spawnSparkle(e.clientX, e.clientY, false, animationContent);
     };
 
     const handleClick = (e) => {
@@ -106,7 +112,7 @@ function getRandomPosition() {
 
       const spawnBatch = () => {
         for (let i = 0; i < 10 && created < sparkleCount; i++) {
-          spawnSparkle(e.clientX, e.clientY, true);
+          spawnSparkle(e.clientX, e.clientY, true, animationContent);
           created++;
         }
         if (created < sparkleCount) {
@@ -124,7 +130,7 @@ function getRandomPosition() {
       window.removeEventListener("mousemove", handleMove);
       window.removeEventListener("click", handleClick);
     };
-  }, []);
+  }, [animationContent]);
 
   useEffect(() => {
     const loadMarkdown = async () => {
@@ -142,7 +148,7 @@ function getRandomPosition() {
 
   return (
     <div className="app-container">
-      <CustomCursor />
+      <CustomCursor cursor={cursor} />
       <div id="sparkle-container"></div>
       <div className="header-container">
         <Header />
@@ -197,6 +203,8 @@ function getRandomPosition() {
             setFontStyle={setFontStyle}
             fontColor={fontColor}
             setFontColor={setFontColor}
+            setCursor={setCursor}
+            setAnimationContent={setAnimationContent}
           />
         </div>
 

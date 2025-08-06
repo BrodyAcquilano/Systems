@@ -1,6 +1,6 @@
 import "../styles/RightSidebar.css";
 
-function RightSidebar({ fontStyle, setFontStyle, fontColor, setFontColor }) {
+function RightSidebar({ fontStyle, setFontStyle, fontColor, setFontColor, setCursor, setAnimationContent }) {
   return (
     <aside className="right-sidebar">
       <div className="right-sidebar-title">Style Options</div>
@@ -24,8 +24,6 @@ function RightSidebar({ fontStyle, setFontStyle, fontColor, setFontColor }) {
           <option value="'MedievalSharp', cursive">MedievalSharp</option>
           <option value="'Caudex', serif">Caudex</option>
           <option value="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Segoe UI / Tahoma</option>
-
-          
         </select>
       </div>
 
@@ -36,18 +34,39 @@ function RightSidebar({ fontStyle, setFontStyle, fontColor, setFontColor }) {
           value={fontColor}
           onChange={(e) => setFontColor(e.target.value)}
         >
-<option value="#2b2b2b">Classic Ink</option>
-<option value="#4e4e4e">Iron Gray</option>
-<option value="#4a2c2a">Dark Mahogany</option>
-<option value="#6f4f28">Chestnut</option>
-<option value="#7b5e57">Weathered Leather</option>
-<option value="#8B0000">Crimson Red</option>
-<option value="#7C0A02">Burgundy</option>
-<option value="#9C1C1C">Scarlet Ink</option>
-<option value="#1C1CA2">Royal Blue Ink</option>
-<option value="#003366">Ink Blue</option>
-<option value="#2C3E50">Slate Blue</option>
+          <option value="#2b2b2b">Classic Ink</option>
+          <option value="#4e4e4e">Iron Gray</option>
+          <option value="#4a2c2a">Dark Mahogany</option>
+          <option value="#6f4f28">Chestnut</option>
+          <option value="#7b5e57">Weathered Leather</option>
+          <option value="#8B0000">Crimson Red</option>
+          <option value="#7C0A02">Burgundy</option>
+          <option value="#9C1C1C">Scarlet Ink</option>
+          <option value="#1C1CA2">Royal Blue Ink</option>
+          <option value="#003366">Ink Blue</option>
+          <option value="#2C3E50">Slate Blue</option>
+        </select>
+      </div>
 
+      <div className="dropdown-group">
+        <label htmlFor="cursor-select">Cursor Style:</label>
+        <select
+          id="cursor-select"
+          onChange={(e) => setCursor(e.target.value)}
+        >
+          <option value="sparkle">✨ Sparkle</option>
+          <option value="lightning">⚡ Lightning</option>
+        </select>
+      </div>
+
+         <div className="dropdown-group">
+        <label htmlFor="animation-select">Animation Style:</label>
+        <select
+          id="animation-select"
+          onChange={(e) => setAnimationContent(e.target.value)}
+        >
+          <option value="sparkle">✨ Sparkle</option>
+          <option value="lightning">⚡ Lightning</option>
         </select>
       </div>
     </aside>

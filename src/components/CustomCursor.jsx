@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import "../styles/CustomCursor.css";
 
-function CustomCursor() {
+function CustomCursor({ cursor }) {
   const cursorRef = useRef(null);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
 
@@ -28,14 +28,27 @@ function CustomCursor() {
 
   if (isTouchDevice) return null;
 
+  let cursorContent;
+
+  switch (cursor) {
+    case "lightning":
+      cursorContent = "⚡";
+      break;
+    case "sparkle":
+    default:
+      cursorContent = "✨";
+      break;
+  }
+
   return (
     <div className="custom-cursor" ref={cursorRef}>
-      ✨
+      {cursorContent}
     </div>
   );
 }
 
 export default CustomCursor;
+
 
 {
   /* Replace with ⚡or <img src="/cursor.svg" /> or inline SVG if you prefer */

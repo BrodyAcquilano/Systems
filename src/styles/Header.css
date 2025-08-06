@@ -17,9 +17,12 @@
 
 /* Shared logo styles */
 .logo {
-  font-size: 1.8rem;
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
   position: absolute;
   user-select: none;
+  pointer-events: none; 
 }
 
 /* Left logo positioned left */

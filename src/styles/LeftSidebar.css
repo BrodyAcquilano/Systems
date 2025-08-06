@@ -94,10 +94,13 @@
   transition: color 0.2s ease;
   flex: 1;
   user-select: none;
-  transition: color 0.2s ease;
 }
 .chapter-title:hover {
   color: #f5f596;
+}
+.chapter-title.active {
+  color: #f5f596;
+  font-weight: 700;
 }
 
 .chapter-toggle-icon {

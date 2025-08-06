@@ -211,28 +211,32 @@ const tocData = [
   },
 ];
 
-function LeftSidebar({ selectedFile,setSelectedFile, setBgId, setBgPosition }) {
+function LeftSidebar({
+  selectedFile,
+  setSelectedFile,
+  setBgId,
+  setBgPosition,
+}) {
   const [expandedParts, setExpandedParts] = useState({});
   const [expandedChapters, setExpandedChapters] = useState({});
 
   const backgroundPositionOverrides = [
-  "left top",
-  "left center",
-  "left bottom",
-  "center top",
-  "center center",
-  "center bottom",
-  "right top",
-  "right center",
-  "right bottom",
-];
-
-function getRandomPosition() {
-  return backgroundPositionOverrides[
-    Math.floor(Math.random() * backgroundPositionOverrides.length)
+    "left top",
+    "left center",
+    "left bottom",
+    "center top",
+    "center center",
+    "center bottom",
+    "right top",
+    "right center",
+    "right bottom",
   ];
-}
 
+  function getRandomPosition() {
+    return backgroundPositionOverrides[
+      Math.floor(Math.random() * backgroundPositionOverrides.length)
+    ];
+  }
 
   function flashElement(el) {
     if (!el) return;
@@ -245,19 +249,19 @@ function getRandomPosition() {
   }
 
   function clearSelection() {
-  const sel = window.getSelection();
-  if (sel) sel.removeAllRanges();
-}
+    const sel = window.getSelection();
+    if (sel) sel.removeAllRanges();
+  }
 
   const isTouchDevice = window.matchMedia(
     "(hover: none) and (pointer: coarse)"
   ).matches;
 
   const togglePart = (index, e) => {
-   if (isTouchDevice) {
-  flashElement(e.currentTarget);
-  clearSelection();
-}
+    if (isTouchDevice) {
+      flashElement(e.currentTarget);
+      clearSelection();
+    }
     setExpandedParts((prev) => ({
       ...prev,
       [index]: !prev[index],
@@ -266,27 +270,28 @@ function getRandomPosition() {
 
   const toggleChapter = (chapterKey, e) => {
     if (isTouchDevice) {
-  flashElement(e.currentTarget);
-  clearSelection();
-}
+      flashElement(e.currentTarget);
+      clearSelection();
+    }
     setExpandedChapters((prev) => ({
       ...prev,
       [chapterKey]: !prev[chapterKey],
     }));
   };
 
-  const handleFileSelect = (currentFile, fileName, e) => {
-  if (currentFile === fileName) return;
+  const handleFileSelect = (fileName, e) => {
+    if (isTouchDevice) {
+      flashElement(e.currentTarget);
+      clearSelection();
+    }
 
-  if (isTouchDevice) {
-  flashElement(e.currentTarget);
-  clearSelection();
-}
+    // Don't reload the file if it's already selected
+    if (selectedFile === fileName) return;
 
-  setSelectedFile(fileName);
-  setBgId(Math.floor(Math.random() * 7) + 1);
-  setBgPosition(getRandomPosition());
-};
+    setSelectedFile(fileName);
+    setBgId(Math.floor(Math.random() * 7) + 1);
+    setBgPosition(getRandomPosition());
+  };
 
   return (
     <aside className="left-sidebar">
@@ -336,9 +341,11 @@ function getRandomPosition() {
                           {expandedChapters[chapterKey] ? "▼" : "▶"}
                         </div>
                         <div
-                          className="chapter-title"
+                          className={`chapter-title ${
+                            selectedFile === chapter.file ? "active" : ""
+                          }`}
                           onClick={(e) => {
-                            handleFileSelect(selectedFile,chapter.file, e);
+                            handleFileSelect(chapter.file, e);
                           }}
                         >
                           {chapter.title}
@@ -353,7 +360,11 @@ function getRandomPosition() {
                                 className="section-item"
                                 key={sectionIndex}
                                 onClick={(e) => {
-                                  handleFileSelect(selectedFile, chapter.file, e);
+                                  handleFileSelect(
+                                    selectedFile,
+                                    chapter.file,
+                                    e
+                                  );
                                   // In the future you can scroll to section anchor here
                                 }}
                               >

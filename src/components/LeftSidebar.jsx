@@ -215,15 +215,15 @@ function LeftSidebar({ setSelectedFile, setBgId }) {
   const [expandedParts, setExpandedParts] = useState({});
   const [expandedChapters, setExpandedChapters] = useState({});
 
-  function flashElement(el) {
-    if (!el) return;
-    const originalColor = el.style.color;
-    el.style.color = "#f5f596";
+function flashElement(el) {
+  if (!el) return;
+  const originalColor = el.style.color;
+  el.style.color = "#f5f596";
 
-    setTimeout(() => {
-      el.style.color = originalColor || "#a5a54e";
-    }, 700);
-  }
+  setTimeout(() => {
+    el.style.color = originalColor || "#a5a54e";
+  }, 700);
+}
 
   const isTouchDevice = window.matchMedia(
     "(hover: none) and (pointer: coarse)"
@@ -256,7 +256,6 @@ function LeftSidebar({ setSelectedFile, setBgId }) {
       <div
         className="left-sidebar-title"
         onClick={(e) => {
-          if (isTouchDevice) flashElement(e.currentTarget);
           handleFileSelect("0. Table of Contents.md", e);
         }}
       >
@@ -269,7 +268,6 @@ function LeftSidebar({ setSelectedFile, setBgId }) {
               <div
                 className="part-toggle-icon"
                 onClick={(e) => {
-                  if (isTouchDevice) flashElement(e.currentTarget);
                   togglePart(partIndex, e);
                 }}
               >
@@ -278,7 +276,6 @@ function LeftSidebar({ setSelectedFile, setBgId }) {
               <div
                 className="part-title"
                 onClick={(e) => {
-                  if (isTouchDevice) flashElement(e.currentTarget);
                   togglePart(partIndex, e);
                 }}
               >
@@ -296,7 +293,6 @@ function LeftSidebar({ setSelectedFile, setBgId }) {
                         <div
                           className="chapter-toggle-icon"
                             onClick={(e) => {
-                            if (isTouchDevice) flashElement(e.currentTarget);
                             e.stopPropagation();
                             toggleChapter(chapterKey, e);
                           }}
@@ -306,7 +302,6 @@ function LeftSidebar({ setSelectedFile, setBgId }) {
                         <div
                           className="chapter-title"
                           onClick={(e) => {
-                            if (isTouchDevice) flashElement(e.currentTarget);
                             e.stopPropagation();
                             handleFileSelect(chapter.file, e);
                           }}

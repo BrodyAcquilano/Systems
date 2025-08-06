@@ -293,7 +293,6 @@ function flashElement(el) {
                         <div
                           className="chapter-toggle-icon"
                             onClick={(e) => {
-                            e.stopPropagation();
                             toggleChapter(chapterKey, e);
                           }}
                         >
@@ -302,7 +301,6 @@ function flashElement(el) {
                         <div
                           className="chapter-title"
                           onClick={(e) => {
-                            e.stopPropagation();
                             handleFileSelect(chapter.file, e);
                           }}
                         >

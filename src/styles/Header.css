@@ -46,7 +46,7 @@
   user-select: text;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .header {
     padding: 1rem;
     height: auto; /* ensures flexible height on mobile */

@@ -215,15 +215,15 @@ function LeftSidebar({ setSelectedFile, setBgId }) {
   const [expandedParts, setExpandedParts] = useState({});
   const [expandedChapters, setExpandedChapters] = useState({});
 
-function flashElement(el) {
-  if (!el) return;
-  const originalColor = el.style.color;
-  el.style.color = "#f5f596";
+  function flashElement(el) {
+    if (!el) return;
+    const originalColor = el.style.color;
+    el.style.color = "#f5f596";
 
-  setTimeout(() => {
-    el.style.color = originalColor || "#a5a54e";
-  }, 700);
-}
+    setTimeout(() => {
+      el.style.color = originalColor || "#a5a54e";
+    }, 700);
+  }
 
   const isTouchDevice = window.matchMedia(
     "(hover: none) and (pointer: coarse)"
@@ -265,14 +265,25 @@ function flashElement(el) {
       <ul>
         {tocData.map((part, partIndex) => (
           <li key={partIndex}>
-            <div
-              className="part-header"
-              onClick={(e) => togglePart(partIndex, e)}
-            >
-              <div className="part-toggle-icon">
+            <div className="part-header">
+              <div
+                className="part-toggle-icon"
+                onClick={(e) => {
+                  if (isTouchDevice) flashElement(e.currentTarget);
+                  togglePart(partIndex, e);
+                }}
+              >
                 {expandedParts[partIndex] ? "▼" : "▶"}
               </div>
-              <div className="part-title">{part.title}</div>
+              <div
+                className="part-title"
+                onClick={(e) => {
+                  if (isTouchDevice) flashElement(e.currentTarget);
+                  togglePart(partIndex, e);
+                }}
+              >
+                {part.title}
+              </div>
             </div>
 
             {expandedParts[partIndex] && (
@@ -281,16 +292,21 @@ function flashElement(el) {
                   const chapterKey = `${partIndex}-${chapterIndex}`;
                   return (
                     <div key={chapterKey}>
-                      <div
-                        className="chapter-header"
-                        onClick={(e) => toggleChapter(chapterKey, e)}
-                      >
-                        <div className="chapter-toggle-icon">
+                      <div className="chapter-header">
+                        <div
+                          className="chapter-toggle-icon"
+                            onClick={(e) => {
+                            if (isTouchDevice) flashElement(e.currentTarget);
+                            e.stopPropagation();
+                            toggleChapter(chapterKey, e);
+                          }}
+                        >
                           {expandedChapters[chapterKey] ? "▼" : "▶"}
                         </div>
                         <div
                           className="chapter-title"
                           onClick={(e) => {
+                            if (isTouchDevice) flashElement(e.currentTarget);
                             e.stopPropagation();
                             handleFileSelect(chapter.file, e);
                           }}

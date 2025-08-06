@@ -29,6 +29,9 @@
 .left-sidebar-title:hover {
   color: #f5f596;
 }
+.left-sidebar-title.active {
+  color: #f5f596;
+}
 
 
 .left-sidebar ul {
@@ -100,7 +103,6 @@
 }
 .chapter-title.active {
   color: #f5f596;
-  font-weight: 700;
 }
 
 .chapter-toggle-icon {

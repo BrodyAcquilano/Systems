@@ -279,26 +279,42 @@ function LeftSidebar({
     }));
   };
 
-  const handleFileSelect = (fileName, e) => {
-    if (isTouchDevice) {
-      flashElement(e.currentTarget);
+const handleFileSelect = (fileName, e) => {
+  if (isTouchDevice) {
+    if (selectedFile !== fileName) {
+       flashElement(e.currentTarget);
       clearSelection();
     }
+  }
 
-    // Don't reload the file if it's already selected
-    if (selectedFile === fileName) return;
+  if (selectedFile === fileName) return;
 
-    setSelectedFile(fileName);
-    setBgId(Math.floor(Math.random() * 7) + 1);
-    setBgPosition(getRandomPosition());
-  };
+  setSelectedFile(fileName);
+  setBgId(Math.floor(Math.random() * 7) + 1);
+  setBgPosition(getRandomPosition());
+};
+
+const handleSectionSelect = (fileName, e) => {
+  if (isTouchDevice) {
+     flashElement(e.currentTarget);
+      clearSelection();
+  }
+
+  if (selectedFile === fileName) return;
+
+  setSelectedFile(fileName);
+  setBgId(Math.floor(Math.random() * 7) + 1);
+  setBgPosition(getRandomPosition());
+};
 
   return (
     <aside className="left-sidebar">
       <div
-        className="left-sidebar-title"
+        className={`left-sidebar-title ${
+          selectedFile === "0. Table of Contents.md" ? "active" : ""
+        }`}
         onClick={(e) => {
-          handleFileSelect(selectedFile, "0. Table of Contents.md", e);
+          handleFileSelect("0. Table of Contents.md", e);
         }}
       >
         Table of Contents
@@ -360,8 +376,7 @@ function LeftSidebar({
                                 className="section-item"
                                 key={sectionIndex}
                                 onClick={(e) => {
-                                  handleFileSelect(
-                                    selectedFile,
+                                  handleSectionSelect(
                                     chapter.file,
                                     e
                                   );

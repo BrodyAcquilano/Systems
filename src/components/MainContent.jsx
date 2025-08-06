@@ -51,7 +51,7 @@ const backgroundPositionOverrides = [
   "right bottom",
 ];
 
-const backgroundSizeOverrides = ["cover", "auto 100%", "100% 100%"];
+const backgroundSizeOverrides = ["cover"];
 
 function MainContent({ fileContent, bgId, fontStyle, fontColor }) {
   const fontSizes = {

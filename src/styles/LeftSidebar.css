@@ -146,16 +146,9 @@
   color: #f5f596;
 }
 
-@media (hover: none) and (pointer: coarse) {
-  .part-title:active,
-  .chapter-title:active,
-  .section-item:active,
-  .left-sidebar-title:active,
-  .part-toggle-icon:active,
-  .chapter-toggle-icon:active {
-    color: #f5f596;
-    background-color: rgba(255, 255, 150, 0.15); /* subtle highlight */
-    transition: none;
-    border-radius: 4px;
-  }
+.tap-flash {
+  color: #f5f596;
+  background-color: rgba(255, 255, 150, 0.15);
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
 }

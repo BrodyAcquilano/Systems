@@ -211,9 +211,28 @@ const tocData = [
   },
 ];
 
-function LeftSidebar({ selectedFile,setSelectedFile, setBgId }) {
+function LeftSidebar({ selectedFile,setSelectedFile, setBgId, setBgPosition }) {
   const [expandedParts, setExpandedParts] = useState({});
   const [expandedChapters, setExpandedChapters] = useState({});
+
+  const backgroundPositionOverrides = [
+  "left top",
+  "left center",
+  "left bottom",
+  "center top",
+  "center center",
+  "center bottom",
+  "right top",
+  "right center",
+  "right bottom",
+];
+
+function getRandomPosition() {
+  return backgroundPositionOverrides[
+    Math.floor(Math.random() * backgroundPositionOverrides.length)
+  ];
+}
+
 
   function flashElement(el) {
     if (!el) return;
@@ -249,8 +268,10 @@ function LeftSidebar({ selectedFile,setSelectedFile, setBgId }) {
   if (currentFile === fileName) return;
 
   if (isTouchDevice) flashElement(e.currentTarget);
+
   setSelectedFile(fileName);
   setBgId(Math.floor(Math.random() * 7) + 1);
+  setBgPosition(getRandomPosition());
 };
 
   return (

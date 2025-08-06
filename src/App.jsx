@@ -16,6 +16,25 @@ function App() {
   const [showRightPanel, setShowRightPanel] = useState(false);
   const [fontStyle, setFontStyle] = useState("'Alegreya SC', serif");
   const [fontColor, setFontColor] = useState("#2b2b2b");
+  const [bgPosition, setBgPosition] = useState(getRandomPosition());
+
+const bgPositionOverrides = [
+  "left top",
+  "left center",
+  "left bottom",
+  "center top",
+  "center center",
+  "center bottom",
+  "right top",
+  "right center",
+  "right bottom",
+];
+
+function getRandomPosition() {
+  return bgPositionOverrides[
+    Math.floor(Math.random() * bgPositionOverrides.length)
+  ];
+}
 
   const spawnSparkle = (x, y, isClick = false) => {
     const sparkle = document.createElement("div");
@@ -148,6 +167,7 @@ function App() {
             selectedFile={selectedFile}
             setSelectedFile={setSelectedFile}
             setBgId={setBgId}
+            setBgPosition={setBgPosition}
           />
         </div>
 
@@ -180,6 +200,7 @@ function App() {
         <MainContent
           fileContent={fileContent}
           bgId={bgId}
+          bgPosition={bgPosition}
           fontStyle={fontStyle}
           fontColor={fontColor}
         />

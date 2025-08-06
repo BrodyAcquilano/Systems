@@ -1,7 +1,18 @@
 import "../styles/RightSidebar.css";
+import { useEffect, useState } from "react";
 
 function RightSidebar({ fontStyle, setFontStyle, fontColor, setFontColor, setCursor, setAnimationContent }) {
+ 
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  useEffect(() => {
+    const hasTouch = matchMedia("(hover: none), (pointer: coarse)").matches;
+    setIsTouchDevice(hasTouch);
+  }, []);
+
   return (
+
+    
     <aside className="right-sidebar">
       <div className="right-sidebar-title">Style Options</div>
 
@@ -48,17 +59,19 @@ function RightSidebar({ fontStyle, setFontStyle, fontColor, setFontColor, setCur
         </select>
       </div>
 
-      <div className="dropdown-group">
-        <label htmlFor="cursor-select">Cursor Style:</label>
-        <select
-          id="cursor-select"
-          onChange={(e) => setCursor(e.target.value)}
-        >
-           <option value="Gold Arrow">Gold Arrow</option>
-           <option value="Steel Arrow">Steel Arrow</option>
-          <option value="sparkle">Sparkle</option>
-        </select>
-      </div>
+  {!isTouchDevice && (
+  <div className="dropdown-group cursor-options">
+    <label htmlFor="cursor-select">Cursor Style:</label>
+    <select
+      id="cursor-select"
+      onChange={(e) => setCursor(e.target.value)}
+    >
+      <option value="Gold Arrow">Gold Arrow</option>
+      <option value="Steel Arrow">Steel Arrow</option>
+      <option value="sparkle">Sparkle</option>
+    </select>
+  </div>
+)}
 
          <div className="dropdown-group">
         <label htmlFor="animation-select">Animation Style:</label>

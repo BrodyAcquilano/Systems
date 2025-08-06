@@ -2,13 +2,6 @@
 
 ---
 
-1. Left Toggle Icon Blocks Text on Mobile  
-Move the toggle button to a less obstructive position using:  
-`position: fixed; top: X; left: Y;`  
-Wrap it in a media query for screens under `768px`. Adjust `z-index` as needed.
-
----
-
 2. Hide Custom Cursor Menu on Mobile  
 Use CSS media queries to hide the cursor dropdown menu on touch devices:
 @media (hover: none) and (pointer: coarse) {

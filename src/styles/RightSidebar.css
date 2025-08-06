@@ -62,3 +62,9 @@
 .right-sidebar select:focus {
   border-color: #83833c;
 }
+
+@media (hover: none) and (pointer: coarse) {
+  .cursor-options {
+    display: none;
+  }
+}

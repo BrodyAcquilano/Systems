@@ -40,6 +40,7 @@
   backdrop-filter: blur(6px);
   z-index: 1002;
   transition: left 0.4s ease, right 0.4s ease;
+  cursor:none;
 }
 
 /* Position when panel is collapsed */
@@ -94,6 +95,7 @@
   backdrop-filter: blur(6px);
   z-index: 1004;
   transition: left 0.4s ease, right 0.4s ease;
+  cursor:none;
 }
 
 /* Position when panel is collapsed */
@@ -129,3 +131,59 @@
 }
 
 
+#sparkle-container {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+.sparkle,
+.click-sparkle {
+  position: absolute;
+  color: #fffbc1;
+  will-change: transform, opacity;
+  opacity: 0.9;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Cursor trail sparkles */
+.sparkle {
+  font-size: calc(12px + 0.5vw);
+  animation: sparkle-fade var(--sparkle-duration, 1.8s) ease-out forwards;
+}
+
+.click-sparkle {
+  animation: click-sparkle-fade var(--sparkle-duration, 1s) ease-out forwards;
+  font-size: 16px;
+}
+
+@keyframes sparkle-fade {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(
+      calc(-12px * var(--rand-dir-x, 1)),
+      calc(-24px * var(--rand-dir-y, 1))
+    ) scale(0.6) rotate(var(--rotation, 0deg));
+  }
+}
+
+@keyframes click-sparkle-fade {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1) rotate(var(--rotation, 0deg));
+  }
+  100% {
+    opacity: 0;
+    transform: translate(
+      var(--move-x, 0px),
+      var(--move-y, 0px)
+    )
+    scale(var(--scale, 0.5))
+    rotate(var(--rotation, 0deg));
+  }
+}

@@ -162,7 +162,7 @@ const maxDuration = 3000; // 3 seconds
           onClick={() => setShowLeftPanel(!showLeftPanel)}
           aria-label="Toggle Table of Contents"
         >
-          🕮
+          ☰
         </button>
 
         {/* Collapsible Left Sidebar */}
@@ -188,7 +188,7 @@ const maxDuration = 3000; // 3 seconds
           onClick={() => setShowRightPanel(!showRightPanel)}
           aria-label="Toggle Options"
         >
-         🖋
+         ☰
         </button>
 
         {/* Collapsible Right Sidebar */}

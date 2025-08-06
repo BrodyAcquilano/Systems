@@ -244,12 +244,20 @@ function getRandomPosition() {
     }, 700);
   }
 
+  function clearSelection() {
+  const sel = window.getSelection();
+  if (sel) sel.removeAllRanges();
+}
+
   const isTouchDevice = window.matchMedia(
     "(hover: none) and (pointer: coarse)"
   ).matches;
 
   const togglePart = (index, e) => {
-    if (isTouchDevice) flashElement(e.currentTarget);
+   if (isTouchDevice) {
+  flashElement(e.currentTarget);
+  clearSelection();
+}
     setExpandedParts((prev) => ({
       ...prev,
       [index]: !prev[index],
@@ -257,7 +265,10 @@ function getRandomPosition() {
   };
 
   const toggleChapter = (chapterKey, e) => {
-    if (isTouchDevice) flashElement(e.currentTarget);
+    if (isTouchDevice) {
+  flashElement(e.currentTarget);
+  clearSelection();
+}
     setExpandedChapters((prev) => ({
       ...prev,
       [chapterKey]: !prev[chapterKey],
@@ -267,7 +278,10 @@ function getRandomPosition() {
   const handleFileSelect = (currentFile, fileName, e) => {
   if (currentFile === fileName) return;
 
-  if (isTouchDevice) flashElement(e.currentTarget);
+  if (isTouchDevice) {
+  flashElement(e.currentTarget);
+  clearSelection();
+}
 
   setSelectedFile(fileName);
   setBgId(Math.floor(Math.random() * 7) + 1);

@@ -9,24 +9,23 @@ import "./styles/App.css";
 const markdownFiles = import.meta.glob("./markdown/*.md", { as: "raw" });
 
 function App() {
-
   const bgPositionOverrides = [
-  "left top",
-  "left center",
-  "left bottom",
-  "center top",
-  "center center",
-  "center bottom",
-  "right top",
-  "right center",
-  "right bottom",
-];
-
-function getRandomPosition() {
-  return bgPositionOverrides[
-    Math.floor(Math.random() * bgPositionOverrides.length)
+    "left top",
+    "left center",
+    "left bottom",
+    "center top",
+    "center center",
+    "center bottom",
+    "right top",
+    "right center",
+    "right bottom",
   ];
-}
+
+  function getRandomPosition() {
+    return bgPositionOverrides[
+      Math.floor(Math.random() * bgPositionOverrides.length)
+    ];
+  }
 
   const [selectedFile, setSelectedFile] = useState("0. Table of Contents.md");
   const [fileContent, setFileContent] = useState("");
@@ -36,19 +35,18 @@ function getRandomPosition() {
   const [fontStyle, setFontStyle] = useState("'Alegreya SC', serif");
   const [fontColor, setFontColor] = useState("#2b2b2b");
   const [bgPosition, setBgPosition] = useState(getRandomPosition());
-  const [cursor, setCursor]=useState("Gold Arrow");
-  const [animationContent, setAnimationContent]=useState("sparkle");
-
+  const [cursor, setCursor] = useState("Gold Arrow");
+  const [animationContent, setAnimationContent] = useState("sparkle");
 
   const spawnSparkle = (x, y, isClick = false, animationContent) => {
     const sparkle = document.createElement("div");
     sparkle.className = isClick ? "click-sparkle" : "sparkle";
-   const symbolMap = {
-    sparkle: "✨",
-    lightning: "⚡",
-  };
+    const symbolMap = {
+      sparkle: "✨",
+      lightning: "⚡",
+    };
 
-  sparkle.innerText = symbolMap[animationContent] || "✨";
+    sparkle.innerText = symbolMap[animationContent] || "✨";
 
     sparkle.style.left = `${x}px`;
     sparkle.style.top = `${y}px`;
@@ -69,8 +67,8 @@ function getRandomPosition() {
       sparkle.style.fontSize = `${12 + Math.random() * 20}px`;
       sparkle.style.opacity = (0.6 + Math.random() * 0.4).toFixed(2);
 
-    const minDuration = 1000; // 1 second
-const maxDuration = 3000; // 3 seconds
+      const minDuration = 1000; // 1 second
+      const maxDuration = 3000; // 3 seconds
       const duration =
         Math.random() * (maxDuration - minDuration) + minDuration;
       sparkle.style.setProperty("--sparkle-duration", `${duration}ms`);
@@ -146,6 +144,24 @@ const maxDuration = 3000; // 3 seconds
     loadMarkdown();
   }, [selectedFile]);
 
+  function flashElement(el) {
+    if (!el) return;
+    const originalColor = el.style.color;
+    el.style.color = "#f5f596";
+    setTimeout(() => {
+      el.style.color = originalColor || "#a5a54e";
+    }, 700);
+  }
+
+  function clearSelection() {
+    const sel = window.getSelection();
+    if (sel) sel.removeAllRanges();
+  }
+
+  const isTouchDevice = window.matchMedia(
+    "(hover: none) and (pointer: coarse)"
+  ).matches;
+
   return (
     <div className="app-container">
       <CustomCursor cursor={cursor} />
@@ -159,7 +175,11 @@ const maxDuration = 3000; // 3 seconds
           className={`left-side-toggle left-toggle ${
             showLeftPanel ? "" : "left-collapsed-toggle"
           }`}
-          onClick={() => setShowLeftPanel(!showLeftPanel)}
+          onClick={(e) => {
+            if (isTouchDevice) flashElement(e.currentTarget);
+            clearSelection();
+            setShowLeftPanel(!showLeftPanel);
+          }}
           aria-label="Toggle Table of Contents"
         >
           ☰
@@ -185,12 +205,15 @@ const maxDuration = 3000; // 3 seconds
           className={`right-side-toggle right-toggle ${
             showRightPanel ? "" : "right-collapsed-toggle"
           }`}
-          onClick={() => setShowRightPanel(!showRightPanel)}
+          onClick={(e) => {
+            if (isTouchDevice) flashElement(e.currentTarget);
+            clearSelection();
+            setShowRightPanel(!showRightPanel);
+          }}
           aria-label="Toggle Options"
         >
-         ☰
+          ☰
         </button>
-
         {/* Collapsible Right Sidebar */}
         <div
           className={`right-overlay-panel right-panel-wrapper ${

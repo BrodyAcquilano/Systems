@@ -2,16 +2,6 @@
 
 ---
 
-2. Hide Custom Cursor Menu on Mobile  
-Use CSS media queries to hide the cursor dropdown menu on touch devices:
-@media (hover: none) and (pointer: coarse) {
-  .cursor-options {
-    display: none;
-  }
-}
-
----
-
 3. Fix Text Highlight Sticking After Tap  
 Prevent text from staying selected after tapping toggle buttons:
 const clearSelection = () => {

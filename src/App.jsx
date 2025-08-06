@@ -58,7 +58,7 @@ function getRandomPosition() {
 
     if (isClick) {
       const angle = Math.random() * 2 * Math.PI;
-      const distance = Math.random() * 400 + 200; // 200–600px
+      const distance = Math.random() * 200 + 100; // 100–300px
       const moveX = `${Math.cos(angle) * distance}px`;
       const moveY = `${Math.sin(angle) * distance}px`;
       const scale = (0.5 + Math.random() * 1.2).toFixed(2);
@@ -69,8 +69,8 @@ function getRandomPosition() {
       sparkle.style.fontSize = `${12 + Math.random() * 20}px`;
       sparkle.style.opacity = (0.6 + Math.random() * 0.4).toFixed(2);
 
-      const minDuration = 2000; // 2 seconds
-      const maxDuration = 5000; // 5 seconds
+    const minDuration = 1000; // 1 second
+const maxDuration = 3000; // 3 seconds
       const duration =
         Math.random() * (maxDuration - minDuration) + minDuration;
       sparkle.style.setProperty("--sparkle-duration", `${duration}ms`);
@@ -107,7 +107,7 @@ function getRandomPosition() {
     };
 
     const handleClick = (e) => {
-      const sparkleCount = window.innerWidth > 1000 ? 120 : 80;
+      const sparkleCount = window.innerWidth > 1000 ? 50 : 30;
       let created = 0;
 
       const spawnBatch = () => {
@@ -162,7 +162,7 @@ function getRandomPosition() {
           onClick={() => setShowLeftPanel(!showLeftPanel)}
           aria-label="Toggle Table of Contents"
         >
-          ☰
+          🕮
         </button>
 
         {/* Collapsible Left Sidebar */}
@@ -188,7 +188,7 @@ function getRandomPosition() {
           onClick={() => setShowRightPanel(!showRightPanel)}
           aria-label="Toggle Options"
         >
-          ☰
+         🖋
         </button>
 
         {/* Collapsible Right Sidebar */}

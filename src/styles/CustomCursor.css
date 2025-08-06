@@ -1,3 +1,4 @@
+
 .custom-cursor {
   position: fixed;
   top: 0;
@@ -6,5 +7,15 @@
   z-index: 9999;
   font-size: 24px;
   transition: transform 0.1s ease;
-  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cursor-arrow {
+  width: 23px;
+  height: 38px;
+  user-select: none;
+  pointer-events: none;
+  image-rendering: crisp-edges;
 }

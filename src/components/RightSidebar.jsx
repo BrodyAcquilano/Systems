@@ -54,8 +54,9 @@ function RightSidebar({ fontStyle, setFontStyle, fontColor, setFontColor, setCur
           id="cursor-select"
           onChange={(e) => setCursor(e.target.value)}
         >
-          <option value="sparkle">✨ Sparkle</option>
-          <option value="lightning">⚡ Lightning</option>
+           <option value="Gold Arrow">Gold Arrow</option>
+           <option value="Steel Arrow">Steel Arrow</option>
+          <option value="sparkle">Sparkle</option>
         </select>
       </div>
 
@@ -65,8 +66,9 @@ function RightSidebar({ fontStyle, setFontStyle, fontColor, setFontColor, setCur
           id="animation-select"
           onChange={(e) => setAnimationContent(e.target.value)}
         >
-          <option value="sparkle">✨ Sparkle</option>
-          <option value="lightning">⚡ Lightning</option>
+          <option value="sparkle">Sparkle</option>
+          <option value="lightning">Lightning</option>
+          
         </select>
       </div>
     </aside>

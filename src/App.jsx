@@ -36,7 +36,7 @@ function getRandomPosition() {
   const [fontStyle, setFontStyle] = useState("'Alegreya SC', serif");
   const [fontColor, setFontColor] = useState("#2b2b2b");
   const [bgPosition, setBgPosition] = useState(getRandomPosition());
-  const [cursor, setCursor]=useState("sparkle");
+  const [cursor, setCursor]=useState("Gold Arrow");
   const [animationContent, setAnimationContent]=useState("sparkle");
 
 

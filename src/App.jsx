@@ -4,6 +4,7 @@ import LeftSidebar from "./components/LeftSidebar";
 import RightSidebar from "./components/RightSidebar";
 import MainContent from "./components/MainContent";
 import CustomCursor from "./components/CustomCursor";
+import CustomAnimation from "./components/CustomAnimation"
 import "./styles/App.css";
 
 const markdownFiles = import.meta.glob("./markdown/*.md", { as: "raw" });
@@ -44,101 +45,10 @@ const [cursor, setCursor] = useState(
   localStorage.getItem("cursor") || "Gold Arrow"
 );
 const [animationContent, setAnimationContent] = useState(
-  localStorage.getItem("animation") || "sparkle"
+  localStorage.getItem("animation") || "Sparkle"
 );
 const [bgPosition, setBgPosition] = useState(getRandomPosition());
 
-  const spawnSparkle = (x, y, isClick = false, animationContent) => {
-    const sparkle = document.createElement("div");
-    sparkle.className = isClick ? "click-sparkle" : "sparkle";
-    const symbolMap = {
-      sparkle: "✨",
-      lightning: "⚡",
-    };
-
-    sparkle.innerText = symbolMap[animationContent] || "✨";
-
-    sparkle.style.left = `${x}px`;
-    sparkle.style.top = `${y}px`;
-
-    const rotation = `${Math.floor(Math.random() * 360)}deg`;
-    sparkle.style.setProperty("--rotation", rotation);
-
-    if (isClick) {
-      const angle = Math.random() * 2 * Math.PI;
-      const distance = Math.random() * 200 + 100; // 100–300px
-      const moveX = `${Math.cos(angle) * distance}px`;
-      const moveY = `${Math.sin(angle) * distance}px`;
-      const scale = (0.5 + Math.random() * 1.2).toFixed(2);
-
-      sparkle.style.setProperty("--move-x", moveX);
-      sparkle.style.setProperty("--move-y", moveY);
-      sparkle.style.setProperty("--scale", scale);
-      sparkle.style.fontSize = `${12 + Math.random() * 20}px`;
-      sparkle.style.opacity = (0.6 + Math.random() * 0.4).toFixed(2);
-
-      const minDuration = 1000; // 1 second
-      const maxDuration = 3000; // 3 seconds
-      const duration =
-        Math.random() * (maxDuration - minDuration) + minDuration;
-      sparkle.style.setProperty("--sparkle-duration", `${duration}ms`);
-
-      setTimeout(() => sparkle.remove(), duration);
-    } else {
-      const size = 10 + Math.random() * 14; // 10–24px
-      sparkle.style.fontSize = `${size}px`;
-
-      const rotation = `${Math.floor(Math.random() * 360)}deg`;
-      sparkle.style.setProperty("--rotation", rotation);
-
-      sparkle.style.opacity = (0.4 + Math.random() * 0.4).toFixed(2);
-
-      sparkle.style.setProperty("--rand-dir-x", Math.random() > 0.5 ? 1 : -1);
-      sparkle.style.setProperty("--rand-dir-y", Math.random() > 0.5 ? 1 : -1);
-
-      // Optional: Assign random lifespan (use with cleanup below)
-      const minDuration = 2000; // 2 seconds
-      const maxDuration = 5000; // 5 seconds
-      const duration =
-        Math.random() * (maxDuration - minDuration) + minDuration;
-      sparkle.style.setProperty("--sparkle-duration", `${duration}ms`);
-
-      setTimeout(() => sparkle.remove(), duration);
-    }
-
-    document.getElementById("sparkle-container").appendChild(sparkle);
-  };
-
-  useEffect(() => {
-    const handleMove = (e) => {
-      spawnSparkle(e.clientX, e.clientY, false, animationContent);
-    };
-
-    const handleClick = (e) => {
-      const sparkleCount = window.innerWidth > 1000 ? 50 : 30;
-      let created = 0;
-
-      const spawnBatch = () => {
-        for (let i = 0; i < 10 && created < sparkleCount; i++) {
-          spawnSparkle(e.clientX, e.clientY, true, animationContent);
-          created++;
-        }
-        if (created < sparkleCount) {
-          requestAnimationFrame(spawnBatch);
-        }
-      };
-
-      spawnBatch();
-    };
-
-    window.addEventListener("mousemove", handleMove);
-    window.addEventListener("click", handleClick);
-
-    return () => {
-      window.removeEventListener("mousemove", handleMove);
-      window.removeEventListener("click", handleClick);
-    };
-  }, [animationContent]);
 
   useEffect(() => {
     const loadMarkdown = async () => {
@@ -175,7 +85,7 @@ const [bgPosition, setBgPosition] = useState(getRandomPosition());
   return (
     <div className="app-container">
       <CustomCursor cursor={cursor} />
-      <div id="sparkle-container"></div>
+     <CustomAnimation animationContent={animationContent} />
       <div className="header-container">
         <Header />
       </div>

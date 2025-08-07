@@ -103,8 +103,8 @@ function RightSidebar({
       <div className="dropdown-group">
         <label htmlFor="animation-select">Animation Style:</label>
         <select id="animation-select" onChange={handleAnimationChange}>
-          <option value="sparkle">Sparkle</option>
-          <option value="lightning">Lightning</option>
+          <option value="Sparkle">Sparkle</option>
+          <option value="Lightning">Lightning</option>
         </select>
       </div>
     </aside>

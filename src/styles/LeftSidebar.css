@@ -79,7 +79,8 @@
   padding: 0.25rem 0;
   user-select: none;
   transition: color 0.2s ease;
-  color: #a5a54e;
+   color: #a5a54e;
+   text-shadow: none;
 }
 
 .part-title:hover {
@@ -94,6 +95,7 @@
 
 .part-title.inactive {
   color: #a5a54e;
+   text-shadow: none;
 }
 
 /* Chapter Header Styles */

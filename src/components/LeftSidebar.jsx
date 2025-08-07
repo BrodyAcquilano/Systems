@@ -238,9 +238,15 @@ function LeftSidebar({
     ];
   }
 
-  function flashElement(el) {
-    if (!el) return;
+function flashElement(el) {
+  if (!el) return;
 
+  if (el.classList.contains("part-title")) {
+    el.classList.add("active");
+    setTimeout(() => {
+      el.classList.remove("active");
+    }, 700);
+  } else {
     const originalColor = el.style.color;
     const originalShadow = el.style.textShadow;
 
@@ -252,6 +258,8 @@ function LeftSidebar({
       el.style.textShadow = originalShadow || "none";
     }, 700);
   }
+}
+
   function clearSelection() {
     const sel = window.getSelection();
     if (sel) sel.removeAllRanges();

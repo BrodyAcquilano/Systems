@@ -238,17 +238,9 @@ function LeftSidebar({
     ];
   }
 
-function flashElement(el) {
-  if (!el) return;
+  function flashElement(el) {
+    if (!el) return;
 
-  if (el.classList.contains("part-title")) {
-     el.classList.remove("inactive");
-    el.classList.add("active");
-    setTimeout(() => {
-      el.classList.remove("active");
-      el.classList.add("inactive");
-    }, 700);
-  } else {
     const originalColor = el.style.color;
     const originalShadow = el.style.textShadow;
 
@@ -258,6 +250,20 @@ function flashElement(el) {
     setTimeout(() => {
       el.style.color = originalColor || "#a5a54e";
       el.style.textShadow = originalShadow || "none";
+    }, 700);
+  }
+
+   function flashTitle(el) {
+  if (!el) return;
+
+  // Only flash if currently inactive
+  if (el.classList.contains("inactive")) {
+    el.classList.remove("inactive");
+    el.classList.add("active");
+
+    setTimeout(() => {
+      el.classList.remove("active");
+      el.classList.add("inactive");
     }, 700);
   }
 }
@@ -286,7 +292,7 @@ function flashElement(el) {
 
     if (isTouchDevice) {
       setTimeout(() => {
-        flashElement(e.currentTarget);
+        flashTitle(e.currentTarget);
         clearSelection();
       }, 50); // wait for re-render
     }

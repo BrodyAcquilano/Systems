@@ -4,7 +4,6 @@
   justify-content: center;
   background-color: #73567e;
   padding: 1rem 2rem;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 1);
   position: relative;
   font-family: "Alegreya SC", serif;
   z-index: 1005;
@@ -13,6 +12,8 @@
   box-sizing: border-box;
   /* Removed fixed height to allow dynamic height */
   height: auto;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 1);
+  border-bottom: 8px solid #6e6e35;
 }
 
 /* Shared logo styles */

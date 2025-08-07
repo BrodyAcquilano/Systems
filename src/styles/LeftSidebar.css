@@ -11,31 +11,21 @@
   position: relative;
   z-index: 5;
   min-height: 100%;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 1);
-  border: 8px solid #474646;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 1);
+  border: 8px solid #6e6e35;
   box-sizing: border-box;
 }
 
 .left-sidebar-title {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #a5a54e;
+  color: #cfcf8e;
+  text-shadow: 0 0 4px #f5f59655;
   margin-bottom: 1rem;
   text-align: center;
   transition: color 0.2s ease;
   user-select: none;
 }
-
-.left-sidebar-title:hover {
-  color: #cfcf8e; 
-  text-shadow: 0 0 4px #f5f59655;
-}
-.left-sidebar-title.active {
-  color: #cfcf8e; 
-  text-shadow: 0 0 4px #f5f59655;
-}
-
-
 
 .left-sidebar ul {
   list-style: none;
@@ -54,7 +44,6 @@
   align-items: flex-start;
   margin-bottom: 0.25rem;
   gap: 0.5rem;
-  
 }
 
 .part-toggle-icon {
@@ -69,16 +58,16 @@
   transition: color 0.2s ease;
 }
 .part-toggle-icon:hover {
-  color: #cfcf8e; 
+  color: #cfcf8e;
   text-shadow: 0 0 4px #f5f59655;
 }
 .part-toggle-icon.active {
-  color: #cfcf8e; 
+  color: #cfcf8e;
   text-shadow: 0 0 4px #f5f59655;
 }
 
 .part-toggle-icon.inactive {
-  color: #a5a54e 
+  color: #a5a54e;
 }
 
 .part-title {
@@ -90,21 +79,21 @@
   padding: 0.25rem 0;
   user-select: none;
   transition: color 0.2s ease;
-    color: #a5a54e;
+  color: #a5a54e;
 }
 
 .part-title:hover {
-  color: #cfcf8e; 
+  color: #cfcf8e;
   text-shadow: 0 0 4px #f5f59655;
 }
 
 .part-title.active {
-  color: #cfcf8e; 
+  color: #cfcf8e;
   text-shadow: 0 0 4px #f5f59655;
 }
 
 .part-title.inactive {
-  color: #a5a54e 
+  color: #a5a54e;
 }
 
 /* Chapter Header Styles */
@@ -122,11 +111,11 @@
   user-select: none;
 }
 .chapter-title:hover {
-  color: #cfcf8e; 
+  color: #cfcf8e;
   text-shadow: 0 0 4px #f5f59655;
 }
 .chapter-title.active {
-  color: #cfcf8e; 
+  color: #cfcf8e;
   text-shadow: 0 0 4px #f5f59655;
 }
 
@@ -141,17 +130,17 @@
 }
 
 .chapter-toggle-icon:hover {
-  color: #cfcf8e; 
+  color: #cfcf8e;
   text-shadow: 0 0 4px #f5f59655;
 }
 
 .chapter-toggle-icon.active {
-  color: #cfcf8e; 
+  color: #cfcf8e;
   text-shadow: 0 0 4px #f5f59655;
 }
 
 .chapter-toggle-icon.inactive {
-  color: #a5a54e 
+  color: #a5a54e;
 }
 
 /* Section List and Items */
@@ -163,19 +152,16 @@
   border-left: 2px solid rgba(165, 165, 78, 0.3);
 }
 
-
-
 .section-item {
   font-size: 0.95rem;
   line-height: 1.3;
-  color:  #a5a54e;
+  color: #a5a54e;
   padding: 0.25rem 0;
   user-select: none;
   transition: color 0.2s ease;
 }
 
 .section-item:hover {
-  color: #cfcf8e; 
+  color: #cfcf8e;
   text-shadow: 0 0 4px #f5f59655;
 }
-

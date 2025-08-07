@@ -238,20 +238,20 @@ function LeftSidebar({
     ];
   }
 
-function flashElement(el) {
-  if (!el) return;
+  function flashElement(el) {
+    if (!el) return;
 
-  const originalColor = el.style.color;
-  const originalShadow = el.style.textShadow;
+    const originalColor = el.style.color;
+    const originalShadow = el.style.textShadow;
 
-  el.style.color = "#cfcf8e";
-  el.style.textShadow = "0 0 4px #f5f59655";
+    el.style.color = "#cfcf8e";
+    el.style.textShadow = "0 0 4px #f5f59655";
 
-  setTimeout(() => {
-    el.style.color = originalColor || "#a5a54e";
-    el.style.textShadow = originalShadow || "none";
-  }, 700);
-}
+    setTimeout(() => {
+      el.style.color = originalColor || "#a5a54e";
+      el.style.textShadow = originalShadow || "none";
+    }, 700);
+  }
   function clearSelection() {
     const sel = window.getSelection();
     if (sel) sel.removeAllRanges();
@@ -268,19 +268,19 @@ function flashElement(el) {
     }));
   };
 
-const togglePartTitle = (index, e) => {
-  setExpandedParts((prev) => ({
-    ...prev,
-    [index]: !prev[index],
-  }));
+  const togglePartTitle = (index, e) => {
+    setExpandedParts((prev) => ({
+      ...prev,
+      [index]: !prev[index],
+    }));
 
-  if (isTouchDevice) {
-    setTimeout(() => {
-      flashElement(e.currentTarget);
-      clearSelection();
-    }, 50); // wait for re-render
-  }
-};
+    if (isTouchDevice) {
+      setTimeout(() => {
+        flashElement(e.currentTarget);
+        clearSelection();
+      }, 50); // wait for re-render
+    }
+  };
 
   const toggleChapter = (chapterKey) => {
     setExpandedChapters((prev) => ({
@@ -319,16 +319,7 @@ const togglePartTitle = (index, e) => {
 
   return (
     <aside className="left-sidebar">
-      <div
-        className={`left-sidebar-title ${
-          selectedFile === "0. Table of Contents.md" ? "active" : ""
-        }`}
-        onClick={(e) => {
-          handleFileSelect("0. Table of Contents.md", e);
-        }}
-      >
-        Table of Contents
-      </div>
+      <div className="left-sidebar-title">Table of Contents</div>
       <ul>
         {tocData.map((part, partIndex) => (
           <li key={partIndex}>

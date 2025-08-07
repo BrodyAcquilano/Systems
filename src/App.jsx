@@ -27,7 +27,7 @@ function App() {
     ];
   }
 
-  const [selectedFile, setSelectedFile] = useState("0. Table of Contents.md");
+  const [selectedFile, setSelectedFile] = useState("Chapter1.md");
   const [fileContent, setFileContent] = useState("");
   const [bgId, setBgId] = useState(() => Math.floor(Math.random() * 7) + 1);
   const [showLeftPanel, setShowLeftPanel] = useState(false);

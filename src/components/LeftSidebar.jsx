@@ -265,15 +265,16 @@ function LeftSidebar({
   };
 
     const togglePartTitle = (index, e) => {
-   if (isTouchDevice) {  
-        flashElement(e.currentTarget);
-        clearSelection();
-    }
 
       setExpandedParts((prev) => ({
       ...prev,
       [index]: !prev[index],
     }));
+
+       if (isTouchDevice) {  
+        flashElement(e.currentTarget);
+        clearSelection();
+    }
   };
 
   const toggleChapter = (chapterKey) => {

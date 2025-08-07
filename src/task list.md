@@ -2,15 +2,7 @@
 
 ---
 
-3. Fix Text Highlight Sticking After Tap  
-Prevent text from staying selected after tapping toggle buttons:
-const clearSelection = () => {
-  const sel = window.getSelection();
-  if (sel) sel.removeAllRanges();
-};
 
-// Inside onClick:
-clearSelection();
 
 ---
 

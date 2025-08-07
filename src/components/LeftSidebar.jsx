@@ -3,7 +3,7 @@ import "../styles/LeftSidebar.css";
 
 const tocData = [
   {
-    title: "Part I – Foundations of Systemic Thinking",
+    title: "Part I - Foundations of Systemic Thinking",
     description: "Why systems? Why this lens? Vocabulary and tools",
     chapters: [
       {
@@ -22,7 +22,7 @@ const tocData = [
     ],
   },
   {
-    title: "Part II – Ecology of Inequality",
+    title: "Part II - Ecology of Inequality",
     description: "Ecological concepts applied to social systems",
     chapters: [
       {
@@ -84,7 +84,7 @@ const tocData = [
     ],
   },
   {
-    title: "Part III – Engineering for Stability and Resilience",
+    title: "Part III - Engineering for Stability and Resilience",
     description: "Engineering and systems design applied to social problems",
     chapters: [
       {
@@ -132,7 +132,7 @@ const tocData = [
     ],
   },
   {
-    title: "Part IV – Economic and Legal Frameworks",
+    title: "Part IV - Economic and Legal Frameworks",
     description:
       "How to model, measure, and reform system structures and write policies using ecological and engineering principles with economic considerations.",
     chapters: [
@@ -174,7 +174,7 @@ const tocData = [
     ],
   },
   {
-    title: "Part V – Applying the Framework: Case Studies and Practical Tools",
+    title: "Part V - Applying the Framework: Case Studies and Practical Tools",
     description: "Examples of how tools in part 4 above can be applied.",
     chapters: [
       {
@@ -293,6 +293,7 @@ function LeftSidebar({
     if (selectedFile === fileName) return;
 
     setSelectedFile(fileName);
+    localStorage.setItem("selectedFile", fileName);
     setBgId(Math.floor(Math.random() * 7) + 1);
     setBgPosition(getRandomPosition());
 
@@ -313,6 +314,7 @@ function LeftSidebar({
     if (selectedFile === fileName) return;
 
     setSelectedFile(fileName);
+    localStorage.setItem("selectedFile", fileName);
     setBgId(Math.floor(Math.random() * 7) + 1);
     setBgPosition(getRandomPosition());
   };

@@ -27,16 +27,26 @@ function App() {
     ];
   }
 
-  const [selectedFile, setSelectedFile] = useState("Chapter1.md");
-  const [fileContent, setFileContent] = useState("");
-  const [bgId, setBgId] = useState(() => Math.floor(Math.random() * 7) + 1);
-  const [showLeftPanel, setShowLeftPanel] = useState(false);
-  const [showRightPanel, setShowRightPanel] = useState(false);
-  const [fontStyle, setFontStyle] = useState("'Alegreya SC', serif");
-  const [fontColor, setFontColor] = useState("#2b2b2b");
-  const [bgPosition, setBgPosition] = useState(getRandomPosition());
-  const [cursor, setCursor] = useState("Gold Arrow");
-  const [animationContent, setAnimationContent] = useState("sparkle");
+const [selectedFile, setSelectedFile] = useState(
+  localStorage.getItem("selectedFile") || "Chapter1.md"
+);
+const [fileContent, setFileContent] = useState("");
+const [bgId, setBgId] = useState(() => Math.floor(Math.random() * 7) + 1);
+const [showLeftPanel, setShowLeftPanel] = useState(false);
+const [showRightPanel, setShowRightPanel] = useState(false);
+const [fontStyle, setFontStyle] = useState(
+  localStorage.getItem("fontStyle") || "'Alegreya SC', serif"
+);
+const [fontColor, setFontColor] = useState(
+  localStorage.getItem("fontColor") || "#2b2b2b"
+);
+const [cursor, setCursor] = useState(
+  localStorage.getItem("cursor") || "Gold Arrow"
+);
+const [animationContent, setAnimationContent] = useState(
+  localStorage.getItem("animation") || "sparkle"
+);
+const [bgPosition, setBgPosition] = useState(getRandomPosition());
 
   const spawnSparkle = (x, y, isClick = false, animationContent) => {
     const sparkle = document.createElement("div");

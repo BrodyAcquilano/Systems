@@ -242,9 +242,11 @@ function flashElement(el) {
   if (!el) return;
 
   if (el.classList.contains("part-title")) {
+     el.classList.remove("inactive");
     el.classList.add("active");
     setTimeout(() => {
       el.classList.remove("active");
+      el.classlist.add("inactive");
     }, 700);
   } else {
     const originalColor = el.style.color;

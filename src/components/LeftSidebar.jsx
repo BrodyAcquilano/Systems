@@ -291,10 +291,7 @@ function LeftSidebar({
     }));
 
     if (isTouchDevice) {
-      setTimeout(() => {
         flashTitle(e.currentTarget);
-        clearSelection();
-      }, 50); // wait for re-render
     }
   };
 

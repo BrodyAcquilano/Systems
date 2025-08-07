@@ -258,31 +258,17 @@ function LeftSidebar({
   ).matches;
 
 const togglePart = (index, e) => {
-  setExpandedParts((prev) => {
-    const isExpanded = !!prev[index];
-    const newExpanded = { ...prev, [index]: !isExpanded };
-
-    // If collapsing (was expanded, now closing)
-    if (isTouchDevice && isExpanded) {
-      setTimeout(() => clearSelection(), 50);
-    }
-
-    return newExpanded;
-  });
+  setExpandedParts((prev) => ({
+    ...prev,
+    [index]: !prev[index],
+  }));
 };
 
 const toggleChapter = (chapterKey, e) => {
-  setExpandedChapters((prev) => {
-    const isExpanded = !!prev[chapterKey];
-    const newExpanded = { ...prev, [chapterKey]: !isExpanded };
-
-    // If collapsing (was expanded, now closing)
-    if (isTouchDevice && isExpanded) {
-      setTimeout(() => clearSelection(), 50);
-    }
-
-    return newExpanded;
-  });
+  setExpandedChapters((prev) => ({
+    ...prev,
+    [chapterKey]: !prev[chapterKey],
+  }));
 };
 
 const handleFileSelect = (fileName, e) => {
@@ -330,7 +316,13 @@ const handleSectionSelect = (fileName, e) => {
           <li key={partIndex}>
             <div className="part-header">
              <div
-  className={`part-toggle-icon ${expandedParts[partIndex] ? "active" : ""}`}
+ className={`part-toggle-icon ${
+  expandedParts[partIndex]
+    ? "active"
+    : isTouchDevice
+    ? "inactive"
+    : ""
+}`}
   onClick={(e) => {
     togglePart(partIndex, e);
   }}
@@ -355,7 +347,13 @@ const handleSectionSelect = (fileName, e) => {
                     <div key={chapterKey}>
                       <div className="chapter-header">
                         <div
-  className={`chapter-toggle-icon ${expandedChapters[chapterKey] ? "active" : ""}`}
+  className={`chapter-toggle-icon ${
+  expandedChapters[chapterKey]
+    ? "active"
+    : isTouchDevice
+    ? "inactive"
+    : ""
+}`}
   onClick={(e) => {
     toggleChapter(chapterKey, e);
   }}

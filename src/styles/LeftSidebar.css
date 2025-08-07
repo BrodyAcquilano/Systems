@@ -72,6 +72,10 @@
   color: #f5f596;
 }
 
+.part-toggle-icon.inactive {
+  color: #a5a54e 
+}
+
 .part-title {
   font-weight: 600;
   font-size: 1.05rem;
@@ -124,6 +128,10 @@
 
 .chapter-toggle-icon.active {
   color: #f5f596;
+}
+
+.chapter-toggle-icon.inactive {
+  color: #a5a54e 
 }
 
 /* Section List and Items */

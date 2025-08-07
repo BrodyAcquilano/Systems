@@ -246,7 +246,7 @@ function flashElement(el) {
     el.classList.add("active");
     setTimeout(() => {
       el.classList.remove("active");
-      el.classlist.add("inactive");
+      el.classList.add("inactive");
     }, 700);
   } else {
     const originalColor = el.style.color;

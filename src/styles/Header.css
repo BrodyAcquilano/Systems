@@ -39,7 +39,8 @@
 .title {
   font-weight: 700;
   font-size: 2rem;
-  color: #a5a54e;
+  color: #cfcf8e; 
+  text-shadow: 0 0 4px #f5f59655;
   text-align: center;
   width: 100%;
   pointer-events: none;

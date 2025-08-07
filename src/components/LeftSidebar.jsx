@@ -238,16 +238,20 @@ function LeftSidebar({
     ];
   }
 
-  function flashElement(el) {
-    if (!el) return;
-    const originalColor = el.style.color;
-    el.style.color = "#f5f596";
+function flashElement(el) {
+  if (!el) return;
 
-    setTimeout(() => {
-      el.style.color = originalColor || "#a5a54e";
-    }, 700);
-  }
+  const originalColor = el.style.color;
+  const originalShadow = el.style.textShadow;
 
+  el.style.color = "#cfcf8e";
+  el.style.textShadow = "0 0 4px #f5f59655";
+
+  setTimeout(() => {
+    el.style.color = originalColor || "#a5a54e";
+    el.style.textShadow = originalShadow || "none";
+  }, 700);
+}
   function clearSelection() {
     const sel = window.getSelection();
     if (sel) sel.removeAllRanges();

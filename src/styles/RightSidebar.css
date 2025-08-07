@@ -31,6 +31,9 @@
   margin-bottom: 1rem;
   text-align: center;
   transition: color 0.2s ease;
+    color: #cfcf8e; /* lighter than inactive, but not as bright as active */
+  text-shadow: 0 0 4px #f5f59655;
+
 }
 
 .dropdown-group {

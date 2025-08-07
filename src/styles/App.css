@@ -44,7 +44,8 @@
 }
 
 .left-side-toggle:hover {
-  color: #f5f596;
+  color: #cfcf8e; 
+  text-shadow: 0 0 4px #f5f59655;
 }
 
 /* Position when panel is collapsed */
@@ -103,7 +104,8 @@
 }
 
 .right-side-toggle:hover {
-  color: #f5f596;
+  color: #cfcf8e; 
+  text-shadow: 0 0 4px #f5f59655;
 }
 
 

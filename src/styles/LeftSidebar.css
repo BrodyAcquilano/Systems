@@ -27,10 +27,12 @@
 }
 
 .left-sidebar-title:hover {
-  color: #f5f596;
+  color: #cfcf8e; 
+  text-shadow: 0 0 4px #f5f59655;
 }
 .left-sidebar-title.active {
-  color: #f5f596;
+  color: #cfcf8e; 
+  text-shadow: 0 0 4px #f5f59655;
 }
 
 
@@ -67,10 +69,12 @@
   transition: color 0.2s ease;
 }
 .part-toggle-icon:hover {
-  color: #f5f596;
+  color: #cfcf8e; 
+  text-shadow: 0 0 4px #f5f59655;
 }
 .part-toggle-icon.active {
-  color: #f5f596;
+  color: #cfcf8e; 
+  text-shadow: 0 0 4px #f5f59655;
 }
 
 .part-toggle-icon.inactive {
@@ -90,11 +94,13 @@
 }
 
 .part-title:hover {
-  color: #f5f596;
+  color: #cfcf8e; 
+  text-shadow: 0 0 4px #f5f59655;
 }
 
 .part-title.active {
-  color: #f5f596;
+  color: #cfcf8e; 
+  text-shadow: 0 0 4px #f5f59655;
 }
 
 .part-title.inactive {
@@ -116,10 +122,12 @@
   user-select: none;
 }
 .chapter-title:hover {
-  color: #f5f596;
+  color: #cfcf8e; 
+  text-shadow: 0 0 4px #f5f59655;
 }
 .chapter-title.active {
-  color: #f5f596;
+  color: #cfcf8e; 
+  text-shadow: 0 0 4px #f5f59655;
 }
 
 .chapter-toggle-icon {
@@ -133,11 +141,13 @@
 }
 
 .chapter-toggle-icon:hover {
-  color: #f5f596;
+  color: #cfcf8e; 
+  text-shadow: 0 0 4px #f5f59655;
 }
 
 .chapter-toggle-icon.active {
-  color: #f5f596;
+  color: #cfcf8e; 
+  text-shadow: 0 0 4px #f5f59655;
 }
 
 .chapter-toggle-icon.inactive {
@@ -165,6 +175,7 @@
 }
 
 .section-item:hover {
-  color: #f5f596;
+  color: #cfcf8e; 
+  text-shadow: 0 0 4px #f5f59655;
 }
 

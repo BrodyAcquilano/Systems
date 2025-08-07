@@ -95,7 +95,7 @@ function RightSidebar({
           <select id="cursor-select" onChange={handleCursorChange}>
             <option value="Gold Arrow">Gold Arrow</option>
             <option value="Steel Arrow">Steel Arrow</option>
-            <option value="sparkle">Sparkle</option>
+            <option value="Sparkle Cursor">Sparkle Cursor</option>
           </select>
         </div>
       )}

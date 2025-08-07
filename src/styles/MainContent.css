@@ -1,6 +1,6 @@
 
 .main-content {
-  padding: 3rem;
+  padding: 5rem;
   overflow-y: auto;
   background-color: #a1ab79;
   background-attachment: fixed;
@@ -14,12 +14,6 @@
   box-sizing: border-box;
 }
 
-
-@media (max-width: 768px) {
-  .main-content {
-    padding-top: 5rem; /* stops left sidebar toggle button from blocking text*/
-  }
-}
 
 
 .content-wrapper {

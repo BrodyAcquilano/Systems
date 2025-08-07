@@ -1,12 +1,6 @@
 📋 Website Development Task Summary
 
----
-
-
-
----
-
-4. Add Custom Sword SVG Cursor  
+1. Add Custom Sword SVG Cursor  
 - Design a centered sword SVG (32x32 or 48x48 recommended)  
 - Save with transparent background and a centered `viewBox`  
 - Apply with:
@@ -16,7 +10,7 @@ body {
 
 ---
 
-5. Media Queries and Mobile Detection  
+2. Media Queries and Mobile Detection  
 - Update any breakpoints to use `768px` instead of `600px`.  
 - Detect touch screens with both CSS and JS:
 
@@ -30,7 +24,7 @@ const isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').m
 
 ---
 
-6. Markdown Hover Effects & Cursor Glow
+3. Markdown Hover Effects & Cursor Glow
 
 Glow text on hover:
 .markdown-content p:hover {
@@ -60,15 +54,10 @@ Glowing cursor follower (CSS):
 
 ---
 
-7. Add Background Theme Options (Beyond Parchment)  
+4. Add Background Theme Options (Beyond Parchment)  
 - Provide multiple background styles or themes (e.g., dark mode, abstract patterns, solid colors)  
 - Allow users to switch themes via UI toggle or menu.
-
+-wooden desk , scroll, book, animations for page turns etc...
 ---
 
-8. Save Style Preferences to Local Storage  
-- When a user selects a style/theme, save it to localStorage:
-localStorage.setItem("preferredTheme", themeName);
-- On app load, check localStorage and apply the saved theme:
-const savedTheme = localStorage.getItem("preferredTheme");
-if (savedTheme) applyTheme(savedTheme);
+5. add database link make a custom ereader /writer with different pages for read/write or for designing custom styles, animations, and cursors or fonts. 

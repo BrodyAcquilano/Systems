@@ -264,11 +264,16 @@ function LeftSidebar({
     }));
   };
 
-    const togglePartTitle = (e) => {
+    const togglePartTitle = (index, e) => {
    if (isTouchDevice) {  
         flashElement(e.currentTarget);
         clearSelection();
     }
+
+      setExpandedParts((prev) => ({
+      ...prev,
+      [index]: !prev[index],
+    }));
   };
 
   const toggleChapter = (chapterKey) => {
@@ -345,7 +350,7 @@ function LeftSidebar({
                     : ""
                 }`}
                 onClick={(e) => {
-                  togglePartTitle(e);
+                  togglePartTitle(partIndex, e);
                 }}
               >
                 {part.title}

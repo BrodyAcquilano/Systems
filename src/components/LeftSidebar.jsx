@@ -280,18 +280,18 @@ function LeftSidebar({
   };
 
 const handleFileSelect = (fileName, e) => {
-  if (isTouchDevice) {
-    if (selectedFile !== fileName) {
-       flashElement(e.currentTarget);
-      clearSelection();
-    }
-  }
-
   if (selectedFile === fileName) return;
 
   setSelectedFile(fileName);
   setBgId(Math.floor(Math.random() * 7) + 1);
   setBgPosition(getRandomPosition());
+
+  if (isTouchDevice) {
+    setTimeout(() => {
+      flashElement(e.currentTarget);
+      clearSelection();
+    }, 50); // wait for re-render
+  }
 };
 
 const handleSectionSelect = (fileName, e) => {

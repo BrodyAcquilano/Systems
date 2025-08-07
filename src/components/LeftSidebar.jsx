@@ -264,18 +264,19 @@ function LeftSidebar({
     }));
   };
 
-    const togglePartTitle = (index, e) => {
+const togglePartTitle = (index, e) => {
+  setExpandedParts((prev) => ({
+    ...prev,
+    [index]: !prev[index],
+  }));
 
-      setExpandedParts((prev) => ({
-      ...prev,
-      [index]: !prev[index],
-    }));
-
-       if (isTouchDevice) {  
-        flashElement(e.currentTarget);
-        clearSelection();
-    }
-  };
+  if (isTouchDevice) {
+    setTimeout(() => {
+      flashElement(e.currentTarget);
+      clearSelection();
+    }, 50); // wait for re-render
+  }
+};
 
   const toggleChapter = (chapterKey) => {
     setExpandedChapters((prev) => ({

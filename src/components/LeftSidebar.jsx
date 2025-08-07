@@ -264,7 +264,7 @@ function LeftSidebar({
     }));
   };
 
-    const togglePartTitle = (index) => {
+    const togglePartTitle = (e) => {
    if (isTouchDevice) {  
         flashElement(e.currentTarget);
         clearSelection();
@@ -345,7 +345,7 @@ function LeftSidebar({
                     : ""
                 }`}
                 onClick={(e) => {
-                  togglePartTitle(partIndex, e);
+                  togglePartTitle(e);
                 }}
               >
                 {part.title}

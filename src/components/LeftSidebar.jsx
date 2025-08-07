@@ -258,17 +258,31 @@ function LeftSidebar({
   ).matches;
 
 const togglePart = (index, e) => {
-  setExpandedParts((prev) => ({
-    ...prev,
-    [index]: !prev[index],
-  }));
+  setExpandedParts((prev) => {
+    const isExpanded = !!prev[index];
+    const newExpanded = { ...prev, [index]: !isExpanded };
+
+    // If collapsing (was expanded, now closing)
+    if (isTouchDevice && isExpanded) {
+      setTimeout(() => clearSelection(), 50);
+    }
+
+    return newExpanded;
+  });
 };
 
 const toggleChapter = (chapterKey, e) => {
-  setExpandedChapters((prev) => ({
-    ...prev,
-    [chapterKey]: !prev[chapterKey],
-  }));
+  setExpandedChapters((prev) => {
+    const isExpanded = !!prev[chapterKey];
+    const newExpanded = { ...prev, [chapterKey]: !isExpanded };
+
+    // If collapsing (was expanded, now closing)
+    if (isTouchDevice && isExpanded) {
+      setTimeout(() => clearSelection(), 50);
+    }
+
+    return newExpanded;
+  });
 };
 
 const handleFileSelect = (fileName, e) => {

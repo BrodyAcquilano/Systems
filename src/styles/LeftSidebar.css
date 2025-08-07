@@ -34,6 +34,7 @@
 }
 
 
+
 .left-sidebar ul {
   list-style: none;
   padding: 0;
@@ -85,10 +86,19 @@
   padding: 0.25rem 0;
   user-select: none;
   transition: color 0.2s ease;
+    color: #a5a54e;
 }
 
 .part-title:hover {
   color: #f5f596;
+}
+
+.part-title.active {
+  color: #f5f596;
+}
+
+.part-title.inactive {
+  color: #a5a54e 
 }
 
 /* Chapter Header Styles */

@@ -257,47 +257,54 @@ function LeftSidebar({
     "(hover: none) and (pointer: coarse)"
   ).matches;
 
-const togglePart = (index, e) => {
-  setExpandedParts((prev) => ({
-    ...prev,
-    [index]: !prev[index],
-  }));
-};
+  const togglePart = (index) => {
+    setExpandedParts((prev) => ({
+      ...prev,
+      [index]: !prev[index],
+    }));
+  };
 
-const toggleChapter = (chapterKey, e) => {
-  setExpandedChapters((prev) => ({
-    ...prev,
-    [chapterKey]: !prev[chapterKey],
-  }));
-};
+    const togglePartTitle = (index) => {
+   if (isTouchDevice) {  
+        flashElement(e.currentTarget);
+        clearSelection();
+    }
+  };
 
-const handleFileSelect = (fileName, e) => {
-  if (selectedFile === fileName) return;
+  const toggleChapter = (chapterKey) => {
+    setExpandedChapters((prev) => ({
+      ...prev,
+      [chapterKey]: !prev[chapterKey],
+    }));
+  };
 
-  setSelectedFile(fileName);
-  setBgId(Math.floor(Math.random() * 7) + 1);
-  setBgPosition(getRandomPosition());
+  const handleFileSelect = (fileName, e) => {
+    if (selectedFile === fileName) return;
 
-  if (isTouchDevice) {
-    setTimeout(() => {
+    setSelectedFile(fileName);
+    setBgId(Math.floor(Math.random() * 7) + 1);
+    setBgPosition(getRandomPosition());
+
+    if (isTouchDevice) {
+      setTimeout(() => {
+        flashElement(e.currentTarget);
+        clearSelection();
+      }, 50); // wait for re-render
+    }
+  };
+
+  const handleSectionSelect = (fileName, e) => {
+    if (isTouchDevice) {
       flashElement(e.currentTarget);
       clearSelection();
-    }, 50); // wait for re-render
-  }
-};
+    }
 
-const handleSectionSelect = (fileName, e) => {
-  if (isTouchDevice) {
-     flashElement(e.currentTarget);
-      clearSelection();
-  }
+    if (selectedFile === fileName) return;
 
-  if (selectedFile === fileName) return;
-
-  setSelectedFile(fileName);
-  setBgId(Math.floor(Math.random() * 7) + 1);
-  setBgPosition(getRandomPosition());
-};
+    setSelectedFile(fileName);
+    setBgId(Math.floor(Math.random() * 7) + 1);
+    setBgPosition(getRandomPosition());
+  };
 
   return (
     <aside className="left-sidebar">
@@ -315,24 +322,30 @@ const handleSectionSelect = (fileName, e) => {
         {tocData.map((part, partIndex) => (
           <li key={partIndex}>
             <div className="part-header">
-             <div
- className={`part-toggle-icon ${
-  expandedParts[partIndex]
-    ? "active"
-    : isTouchDevice
-    ? "inactive"
-    : ""
-}`}
-  onClick={(e) => {
-    togglePart(partIndex, e);
-  }}
->
-  {expandedParts[partIndex] ? "▼" : "▶"}
-</div>
               <div
-                className="part-title"
+                className={`part-toggle-icon ${
+                  expandedParts[partIndex]
+                    ? "active"
+                    : isTouchDevice
+                    ? "inactive"
+                    : ""
+                }`}
                 onClick={(e) => {
-                  togglePart(partIndex, e);
+                  togglePart(partIndex);
+                }}
+              >
+                {expandedParts[partIndex] ? "▼" : "▶"}
+              </div>
+              <div
+                className={`part-title ${
+                  part.chapters.some((chapter) => chapter.file === selectedFile)
+                    ? "active"
+                    : isTouchDevice
+                    ? "inactive"
+                    : ""
+                }`}
+                onClick={(e) => {
+                  togglePartTitle(partIndex, e);
                 }}
               >
                 {part.title}
@@ -347,19 +360,19 @@ const handleSectionSelect = (fileName, e) => {
                     <div key={chapterKey}>
                       <div className="chapter-header">
                         <div
-  className={`chapter-toggle-icon ${
-  expandedChapters[chapterKey]
-    ? "active"
-    : isTouchDevice
-    ? "inactive"
-    : ""
-}`}
-  onClick={(e) => {
-    toggleChapter(chapterKey, e);
-  }}
->
-  {expandedChapters[chapterKey] ? "▼" : "▶"}
-</div>
+                          className={`chapter-toggle-icon ${
+                            expandedChapters[chapterKey]
+                              ? "active"
+                              : isTouchDevice
+                              ? "inactive"
+                              : ""
+                          }`}
+                          onClick={(e) => {
+                            toggleChapter(chapterKey);
+                          }}
+                        >
+                          {expandedChapters[chapterKey] ? "▼" : "▶"}
+                        </div>
                         <div
                           className={`chapter-title ${
                             selectedFile === chapter.file ? "active" : ""
@@ -380,10 +393,7 @@ const handleSectionSelect = (fileName, e) => {
                                 className="section-item"
                                 key={sectionIndex}
                                 onClick={(e) => {
-                                  handleSectionSelect(
-                                    chapter.file,
-                                    e
-                                  );
+                                  handleSectionSelect(chapter.file, e);
                                   // In the future you can scroll to section anchor here
                                 }}
                               >

@@ -68,6 +68,9 @@
 .part-toggle-icon:hover {
   color: #f5f596;
 }
+.part-toggle-icon.active {
+  color: #f5f596;
+}
 
 .part-title {
   font-weight: 600;
@@ -116,6 +119,10 @@
 }
 
 .chapter-toggle-icon:hover {
+  color: #f5f596;
+}
+
+.chapter-toggle-icon.active {
   color: #f5f596;
 }
 

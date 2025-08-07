@@ -257,27 +257,19 @@ function LeftSidebar({
     "(hover: none) and (pointer: coarse)"
   ).matches;
 
-  const togglePart = (index, e) => {
-    if (isTouchDevice) {
-      flashElement(e.currentTarget);
-      clearSelection();
-    }
-    setExpandedParts((prev) => ({
-      ...prev,
-      [index]: !prev[index],
-    }));
-  };
+const togglePart = (index, e) => {
+  setExpandedParts((prev) => ({
+    ...prev,
+    [index]: !prev[index],
+  }));
+};
 
-  const toggleChapter = (chapterKey, e) => {
-    if (isTouchDevice) {
-      flashElement(e.currentTarget);
-      clearSelection();
-    }
-    setExpandedChapters((prev) => ({
-      ...prev,
-      [chapterKey]: !prev[chapterKey],
-    }));
-  };
+const toggleChapter = (chapterKey, e) => {
+  setExpandedChapters((prev) => ({
+    ...prev,
+    [chapterKey]: !prev[chapterKey],
+  }));
+};
 
 const handleFileSelect = (fileName, e) => {
   if (selectedFile === fileName) return;
@@ -323,14 +315,14 @@ const handleSectionSelect = (fileName, e) => {
         {tocData.map((part, partIndex) => (
           <li key={partIndex}>
             <div className="part-header">
-              <div
-                className="part-toggle-icon"
-                onClick={(e) => {
-                  togglePart(partIndex, e);
-                }}
-              >
-                {expandedParts[partIndex] ? "▼" : "▶"}
-              </div>
+             <div
+  className={`part-toggle-icon ${expandedParts[partIndex] ? "active" : ""}`}
+  onClick={(e) => {
+    togglePart(partIndex, e);
+  }}
+>
+  {expandedParts[partIndex] ? "▼" : "▶"}
+</div>
               <div
                 className="part-title"
                 onClick={(e) => {
@@ -349,13 +341,13 @@ const handleSectionSelect = (fileName, e) => {
                     <div key={chapterKey}>
                       <div className="chapter-header">
                         <div
-                          className="chapter-toggle-icon"
-                          onClick={(e) => {
-                            toggleChapter(chapterKey, e);
-                          }}
-                        >
-                          {expandedChapters[chapterKey] ? "▼" : "▶"}
-                        </div>
+  className={`chapter-toggle-icon ${expandedChapters[chapterKey] ? "active" : ""}`}
+  onClick={(e) => {
+    toggleChapter(chapterKey, e);
+  }}
+>
+  {expandedChapters[chapterKey] ? "▼" : "▶"}
+</div>
                         <div
                           className={`chapter-title ${
                             selectedFile === chapter.file ? "active" : ""
